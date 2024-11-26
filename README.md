@@ -44,7 +44,7 @@
 ## 🧩 How to Use
 ## Installation
 1. Clone the repository:
-   git clone https://github.com/your-username/trainwithme.git
+   git clone https://github.com/dimdivanov/trainwithme.git
    cd trainwithme
 2. Install dependencies:
    npm install
