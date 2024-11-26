@@ -1,0 +1,42 @@
+/* Creators */
+.creators {
+  margin: 50px;
+  padding: 20px 150px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+.creators .creators-list {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+.creators h2 {
+  font-size: 2.4em;
+}
+.creators-list .creators-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.creators-item h3 {
+  font-size: 1.8em;
+  text-align: center;
+}
+.creators .browse-coaches {
+  margin-top: 30px;
+  border-radius: 5px;
+  align-self: center;
+  text-align: center;
+  background-color: orange;
+  width: 20%;
+  padding: 20px;
+}
+.creators .browse-coaches a {
+  font-weight: 800;
+  color: black;
+  font-size: 1.4em;
+}
