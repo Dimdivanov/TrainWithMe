@@ -2,7 +2,6 @@
 .creators {
   margin: 50px;
   padding: 20px 150px;
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +9,7 @@
 }
 .creators .creators-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 50px;
 }
@@ -39,4 +39,10 @@
   font-weight: 800;
   color: black;
   font-size: 1.4em;
+}
+
+/* profile pic edit */
+.creators-item img {
+  width: 150px;
+  height: 150px;
 }

@@ -1,0 +1,5 @@
+/*-- main global style--*/
+main {
+  display: flex;
+  flex-direction: column;
+}
