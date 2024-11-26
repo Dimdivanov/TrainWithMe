@@ -1,0 +1,37 @@
+/* -- Header -- */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background-color: rgb(73, 73, 73);
+}
+header .logo-container {
+  width: 100px;
+}
+header .logo-container img {
+  width: 100%;
+}
+.nav-container nav ul {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+nav ul li:nth-child(-n + 2) {
+  color: white;
+}
+nav ul li:nth-child(-n + 3) {
+  font-size: 1.4em;
+}
+.sign-in {
+  font-weight: 800;
+  color: orange;
+}
+.get-started {
+  font-weight: 800;
+  font-size: 2em;
+  background-color: orange;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
