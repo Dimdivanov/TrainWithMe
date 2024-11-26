@@ -1,0 +1,53 @@
+/*-- hero-section --*/
+.hero-section {
+  background: linear-gradient(to right, #241f20 50%, orange 50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 100px 150px;
+  gap: 150px;
+}
+.hero-section h2 {
+  font-weight: 800;
+  font-size: 4em;
+}
+.hero-section p,
+.hero-section a {
+  font-size: 1.5em;
+}
+.hero-section .find-trainer,
+.hero-section .be-trainer {
+  text-align: center;
+  padding: 0 50px;
+  min-height: 400px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.find-trainer h2 {
+  color: orange;
+}
+.find-trainer p {
+  color: white;
+}
+.find-trainer a {
+  margin-top: 25px;
+  font-weight: 500;
+  color: black;
+  background-color: orange;
+  padding: 15px 40px;
+  border-radius: 5px;
+  width: 50%;
+}
+.be-trainer a {
+  margin-top: 25px;
+  font-weight: 500;
+  color: orange;
+  background-color: black;
+  padding: 15px 40px;
+  border-radius: 5px;
+  width: 50%;
+}
