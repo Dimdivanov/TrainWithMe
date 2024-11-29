@@ -1,0 +1,111 @@
+/* REGISTER */
+.sign-up-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.form-container {
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #ff851b;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #ff851b;
+  background-color: #fff;
+}
+
+.form-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.sign-up-btn {
+  background-color: #ff851b;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sign-up-btn:hover {
+  background-color: #ffd700;
+  transform: scale(1.05);
+}
+
+/* Account Type Buttons in Register */
+.account-type {
+  margin-top: 20px;
+  color: #444;
+  font-size: 16px;
+}
+
+.account-type p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.account-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.account-btn {
+  padding: 12px 30px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.account-btn:hover {
+  background-color: #ff851b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.account-btn.active {
+  background-color: #ff851b;
+  color: #fff;
+  border-color: #ff851b;
+}
