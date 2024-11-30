@@ -1,0 +1,69 @@
+/* Main */
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(155deg, #ff851b, #ffd700);
+  padding: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.hero-section .content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.hero-section .content-container .content {
+  max-width: 800px;
+}
+.content-container .content > h1 {
+  font-size: 3.6em;
+  color: #222222;
+}
+.content-container .content p {
+  font-size: 1.5em;
+  color: #222222;
+}
+.content-container .hero-btns {
+  display: flex;
+  gap: 150px;
+}
+
+.hero-btns .client-btn {
+  background-color: #fff;
+  color: #ff851b;
+  padding: 12px 30px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid #ff851b;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.hero-btns .client-btn:hover {
+  background-color: #ff851b;
+  color: #fff;
+  border: 2px solid #ff851b;
+  transform: scale(1.05);
+}
+
+.hero-btns .trainer-btn {
+  background-color: #ffd700;
+  color: #212121;
+  padding: 12px 30px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid #ffd700;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.hero-btns .trainer-btn:hover {
+  background-color: #ff851b;
+  color: #fff;
+  border: 2px solid #ff851b;
+  transform: scale(1.05);
+}
