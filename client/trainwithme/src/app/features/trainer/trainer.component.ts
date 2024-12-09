@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainerService } from './trainer.service';
+import { Trainer } from '../../types/trainer';
 
 @Component({
   selector: 'app-trainer',
@@ -10,15 +11,13 @@ import { TrainerService } from './trainer.service';
   styleUrl: './trainer.component.css',
 })
 export class TrainerComponent implements OnInit {
-  trainerUsers: any[] = [];
+  trainerUsers: Trainer[] = [];
   constructor(private trainerService: TrainerService) {}
   ngOnInit(): void {
     this.fetchTrainers();
   }
 
   fetchTrainers() {
-    this.trainerService.getAllTrainers().subscribe((data) => {
-      console.log(data);
-    });
+    this.trainerService.getAllTrainers().subscribe((data) => {});
   }
 }

@@ -1,11 +1,40 @@
-interface User {
-  username: string;
+export interface Subscriber {
   _id: string;
 }
+
+export interface User {
+  themes: string[];
+  posts: string[];
+  _id: string;
+  tel: string;
+  email: string;
+  username: string;
+  password: string;
+  created_at: string;
+  updatedAt: string;
+  __v: number;
+}
+
 export interface Post {
-  id: string;
   likes: string[];
+  _id: string;
   text: string;
   userId: User;
-  theme: string;
+  themeId: Theme;
+  created_at: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface Theme {
+  username: string;
+  createdBy: string;
+  subscribers: string[];
+  posts: Post[];
+  _id: string;
+  themeName: string;
+  userId: User;
+  created_at: string;
+  updatedAt: string;
+  __v: number;
 }

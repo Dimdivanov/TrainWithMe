@@ -8,6 +8,7 @@ import { HomeComponent } from './features/home/home.component';
 import { TrainerComponent } from './features/trainer/trainer.component';
 import { BlogsComponent } from './features/blogs/blogs.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { BlogItemComponent } from './features/blogs/blog-item/blog-item.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,7 +16,10 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'about', component: AboutComponent },
   { path: 'trainer', component: TrainerComponent },
-  { path: 'blogs', component: BlogsComponent },
+  { path: 'blogs', children: [
+    {path: '', component: BlogsComponent},
+    {path: ':themeId', component: BlogItemComponent}
+  ] },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

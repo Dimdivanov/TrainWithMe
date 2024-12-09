@@ -1,0 +1,112 @@
+.theme-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #212121;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.theme-header h1 {
+  font-size: 2.2em;
+  color: #fff;
+  margin: 0;
+}
+
+.theme-header .theme-meta {
+  font-size: 0.9em;
+  color: #e4381c;
+  margin-top: 5px;
+}
+
+.theme-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #333;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.theme-info p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.theme-posts {
+  margin-top: 30px;
+}
+
+.theme-posts h2 {
+  font-size: 1.5em;
+  color: #e4381c;
+  margin-bottom: 15px;
+}
+
+.theme-posts ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.post-header a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.post-header a:hover {
+  color: #e4381c;
+}
+
+.post-content {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #fff;
+}
+
+.post-likes {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #e4381c;
+}
+
+.post-likes p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-likes span {
+  font-size: 1.2em;
+}
+
+/* General Link Styling */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #e4381c;
+}

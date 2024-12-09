@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogsService } from './blogs.service';
-import { Post } from '../../types/post';
+import { Theme } from '../../types/post';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-blogs',
   standalone: true,
-  imports: [LoaderComponent],
+  imports: [LoaderComponent, RouterLink],
   providers: [BlogsService],
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css',
 })
 export class BlogsComponent implements OnInit {
-  blogs: Post[] = [];
+  blogs: Theme[] = [];
 
   //testing loader
   isLoading = true;
@@ -26,7 +27,6 @@ export class BlogsComponent implements OnInit {
 
   fetchItems(): void {
     this.blogsService.getAll().subscribe((data) => {
-      console.log(data);
       this.blogs = data;
     });
   }

@@ -2,10 +2,8 @@
 <div class="loader-container">
   <app-loader />
 </div>
-} @else { @for (blog of blogs; track $index) {
+} @for (blog of blogs; track $index) {
 <div class="content-blogs">
-  <p>{{ blog.id }}</p>
-  <p>{{ blog.likes }}</p>
-  <p>{{ blog.text }}</p>
+  <a [routerLink]="blog._id">{{ blog.themeName }}</a>
 </div>
-} }
+}
