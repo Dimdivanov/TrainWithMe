@@ -1,4 +1,11 @@
+interface User {
+  username: string;
+  _id: string;
+}
 export interface Post {
-  content: string;
-  title: string;
+  id: string;
+  likes: string[];
+  text: string;
+  userId: User;
+  theme: string;
 }

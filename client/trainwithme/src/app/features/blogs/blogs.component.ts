@@ -18,7 +18,8 @@ export class BlogsComponent implements OnInit {
 
   fetchItems(): void {
     this.blogsService.getAll().subscribe((data) => {
-      console.log(data);
+      console.log(data[0].userId.username);
+
       this.items.push(data);
     });
   }

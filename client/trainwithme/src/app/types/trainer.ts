@@ -1,22 +1,12 @@
 export interface Trainer {
-  _id: {
-    $oid: string;
-  };
-  themes: Array<{
-    $oid: string;
-  }>;
-  posts: Array<{
-    $oid: string;
-  }>;
+  _id: string;
+  themes: string[];
+  posts: string[];
   tel: string;
   email: string;
   username: string;
   password: string;
-  created_at: {
-    $date: string;
-  };
-  updatedAt: {
-    $date: string;
-  };
+  created_at: string;
+  updatedAt: string;
   __v: number;
 }

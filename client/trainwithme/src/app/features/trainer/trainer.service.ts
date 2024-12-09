@@ -7,8 +7,9 @@ import { Trainer } from '../../types/trainer';
 export class TrainerService {
   constructor(private http: HttpClient) {}
 
+  //get this authorized
   getAllTrainers() {
     const { apiUrl } = environment;
-    return this.http.get<Trainer[]>(`${apiUrl}/users`);
+    return this.http.get<Trainer[]>(`${apiUrl}/users/profile`);
   }
 }
