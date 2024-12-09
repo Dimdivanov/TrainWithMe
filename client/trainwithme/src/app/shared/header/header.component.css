@@ -13,6 +13,11 @@ header .logo-container img {
 header .menu-container {
   display: flex;
 }
+.nav-items {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
 header .nav-items a::after {
   content: "";
   position: absolute;

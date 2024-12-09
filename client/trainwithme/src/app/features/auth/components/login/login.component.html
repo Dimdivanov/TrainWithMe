@@ -1,7 +1,7 @@
 <section class="login-section">
   <div class="form-container">
     <h2>Login</h2>
-    <form>
+    <form class="login" #form="ngForm" (ngSubmit)="login(form)">
       <div class="form-field">
         <label for="email">Email</label>
         <input
@@ -10,6 +10,8 @@
           name="email"
           placeholder="Enter your email"
           required
+          ngModel
+          #inputEmail="ngModel"
         />
       </div>
       <div class="form-field">
@@ -20,6 +22,8 @@
           name="password"
           placeholder="Enter your password"
           required
+          ngModel
+          #inputPasswor="ngModel"
         />
       </div>
       <div class="form-btns">

@@ -2,3 +2,42 @@
   margin: 50px auto;
   text-align: center;
 }
+/* dashboard */
+/* dashboard biography style */
+.biography-container {
+  width: 80%;
+  background-color: white;
+  margin: 50px auto;
+  padding: 30px 50px;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  gap: 40px;
+}
+.biography-container .left-side {
+  display: flex;
+  flex-direction: column;
+}
+.left-side .type-trainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.type-trainer .type {
+  font-weight: 600;
+  color: rgb(0, 255, 136);
+}
+.profile-pic img {
+  width: 150px;
+  border-radius: 50%;
+}
+.biography-container .right-side {
+  display: flex;
+  flex-direction: column;
+}
+.right-side .bio {
+  padding: 20px 10px;
+  width: 800px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
