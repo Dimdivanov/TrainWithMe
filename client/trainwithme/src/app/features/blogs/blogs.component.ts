@@ -20,10 +20,8 @@ export class BlogsComponent implements OnInit {
   constructor(private blogsService: BlogsService) {}
   ngOnInit(): void {
     this.fetchItems();
-    //testing loader
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
+    //testing loader - remove the timeout to stop the example
+    this.isLoading = false;
   }
 
   fetchItems(): void {

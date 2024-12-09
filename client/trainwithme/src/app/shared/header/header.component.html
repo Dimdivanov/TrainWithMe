@@ -7,7 +7,9 @@
   <div class="nav-items">
     <nav>
       <ul>
+        @if(isLoggedIn){
         <li><a routerLink="/dashboard">Dashboard</a></li>
+        }
         <li><a routerLink="/about">About</a></li>
         <li><a routerLink="/trainer">Trainers</a></li>
         <li><a routerLink="/blogs">Blogs</a></li>
@@ -18,8 +20,15 @@
   <div class="nav-sign-up">
     <nav>
       <ul>
+        @if (isLoggedIn) {
+        <li>username</li>
+        <li>
+          <a (click)="onLogout()" class="primary-btn">Logout</a>
+        </li>
+        } @else {
         <li><a routerLink="/login" class="primary-btn">Sign-in</a></li>
         <li><a routerLink="/register">Get Started</a></li>
+        }
       </ul>
     </nav>
   </div>

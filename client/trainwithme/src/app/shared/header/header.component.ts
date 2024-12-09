@@ -8,4 +8,11 @@ import { RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  //testing with logged in user
+  isLoggedIn = true;
+  //fake logout
+  onLogout() {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
+}
