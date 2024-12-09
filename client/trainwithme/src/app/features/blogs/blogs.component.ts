@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogsService } from './blogs.service';
+import { Post } from '../../types/post';
 
 @Component({
   selector: 'app-blogs',
@@ -10,7 +11,7 @@ import { BlogsService } from './blogs.service';
   styleUrl: './blogs.component.css',
 })
 export class BlogsComponent implements OnInit {
-  items: any[] = [];
+  blogs: Post[] = [];
   constructor(private blogsService: BlogsService) {}
   ngOnInit(): void {
     this.fetchItems();
@@ -18,9 +19,8 @@ export class BlogsComponent implements OnInit {
 
   fetchItems(): void {
     this.blogsService.getAll().subscribe((data) => {
-      console.log(data[0].userId.username);
-
-      this.items.push(data);
+      console.log(data);
+      this.blogs = data;
     });
   }
 }
