@@ -15,6 +15,7 @@ export class MousehoverDirective {
   }
 
   private applyHoverEffect() {
+    //or you can use .addClass instead of .setStyle
     this.renderer.setStyle(this.el.nativeElement, 'transform', 'scale(1.05)');
     this.renderer.setStyle(
       this.el.nativeElement,
@@ -23,6 +24,7 @@ export class MousehoverDirective {
     );
   }
   private removeHoverEffect() {
+    //or you can use .removeClass instead of .removeStyle
     this.renderer.removeStyle(this.el.nativeElement, 'transform');
     this.renderer.removeStyle(this.el.nativeElement, 'box-shadow');
   }
