@@ -9,6 +9,7 @@
         id="article-title"
         placeholder="E.g., 'Top 10 Exercises for Core Strength'"
         required
+        #inputTitle
       />
     </div>
 
@@ -20,13 +21,14 @@
         id="image-url"
         placeholder="E.g., 'https://example.com/image.jpg'"
         required
+        #imageUrlInput
       />
     </div>
 
     <!-- Article Placement -->
     <div class="form-group">
       <label for="article-placement">Placement</label>
-      <select id="article-placement" required>
+      <select id="article-placement" #placementInput required>
         <option value="" disabled selected>
           Select where this article will appear
         </option>
@@ -44,13 +46,30 @@
         rows="8"
         placeholder="Start writing your article here..."
         required
+        #articleContentInput
       ></textarea>
     </div>
 
     <!-- Buttons -->
     <div class="form-actions">
-      <button type="submit" class="btn btn-primary">Post Article</button>
-      <button type="button" class="btn btn-secondary">Cancel</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="
+          addArticle(
+            $event,
+            inputTitle.value,
+            imageUrlInput.value,
+            placementInput.value,
+            articleContentInput.value
+          )
+        "
+      >
+        Post Article
+      </button>
+      <a routerLink="/dashboard">
+        <button type="button" class="btn btn-secondary">Cancel</button>
+      </a>
     </div>
   </form>
 </div>
