@@ -9,11 +9,13 @@ import { TrainerComponent } from './features/trainer/trainer.component';
 import { BlogsComponent } from './features/blogs/blogs.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { BlogItemComponent } from './features/blogs/blog-item/blog-item.component';
+import { ArticleCreateComponent } from './features/dashboard/article-create/article-create.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
+  {path: 'articles', component: ArticleCreateComponent},
   { path: 'about', component: AboutComponent },
   { path: 'trainer', component: TrainerComponent },
   { path: 'blogs', children: [

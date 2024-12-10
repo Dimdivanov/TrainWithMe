@@ -1,7 +1,3 @@
-<div class="dashboard-main">
-  <h1>Dashboard In Progress..</h1>
-</div>
-<!-- dashboard biography component -->
 <section class="dashboard">
   <div class="biography-container">
     <div class="left-side">
@@ -17,15 +13,63 @@
       <h2>Bio:</h2>
       <div class="bio">
         <p>
-          My name is bla bla Lorem ipsum dolor, sit amet consectetur adipisicing
+          My name is bla bla Lorem ipsum dolor sit amet consectetur adipisicing
           elit. Deleniti, cupiditate! 500 letters max
-          My name is bla bla Lorem ipsum dolor, sit amet consectetur adipisicing
-          elit. D
         </p>
       </div>
       <div class="buttons">
-        <a href="#edit-profile" class="edit-btn">Edit</a>
-        <a href="#delete-profile" class="delete-btn">Delete Profile</a>
+        <a routerLink="/edit-profile" class="edit-btn">Edit</a>
+        <a routerLink="#delete-profile" class="delete-btn">Delete Profile</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Posts Section -->
+  <div class="blog-posts">
+    <h2>Blog Posts</h2>
+    <div class="articles-container">
+      <div class="article">
+        <h3>Article 1</h3>
+        <a href="#">Edit / Delete</a>
+      </div>
+      <div class="article">
+        <h3>Article 2</h3>
+        <a href="#">Edit / Delete</a>
+      </div>
+      <div class="article">
+        <h3>Article 3</h3>
+        <a href="#">Edit / Delete</a>
+      </div>
+      <a routerLink="/articles" class="add-article">
+        <div class="article add-new">
+          <h3>+ New Article</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Signed-Up Clients Section -->
+  <div class="signed-clients">
+    <h2>Signed-Up Clients</h2>
+    <div class="clients-container">
+      <div class="client"></div>
+      <div class="client"></div>
+      <div class="client"></div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonials-container">
+      <div class="testimonial">
+        <p>Client Testimonial 1</p>
+      </div>
+      <div class="testimonial">
+        <p>Client Testimonial 2</p>
+      </div>
+      <div class="testimonial">
+        <p>Client Testimonial 3</p>
       </div>
     </div>
   </div>
