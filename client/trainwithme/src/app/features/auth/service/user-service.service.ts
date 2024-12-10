@@ -7,9 +7,18 @@ import { UserForAuth } from '../../../types/userAuth';
 export class UserServiceService {
   USER_KEY = '[user-key]';
   user: UserForAuth | null = null;
+
+  get isLogged(): boolean {
+    return !!this.user;
+  }
+
   constructor() {
     try {
-    } catch (error) {}
+      const isUser = localStorage.getItem(this.USER_KEY) || '';
+      this.user = JSON.parse(isUser);
+    } catch (error) {
+      this.user = null;
+    }
   }
 
   login() {

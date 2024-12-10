@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { UserServiceService } from '../../features/auth/service/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  //testing with logged in user
-  isLoggedIn = true;
-  //fake logout
-  onLogout() {
-    this.isLoggedIn = !this.isLoggedIn;
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
+  get name(): string {
+    return this.userService.user?.name || '';
+  }
+  constructor(
+    private userService: UserServiceService,
+    private router: Router
+  ) {}
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/home']);
   }
 }

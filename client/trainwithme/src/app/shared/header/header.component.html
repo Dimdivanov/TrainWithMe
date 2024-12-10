@@ -21,9 +21,9 @@
     <nav>
       <ul>
         @if (isLoggedIn) {
-        <li>username</li>
+        <li>{{ name }}</li>
         <li>
-          <a (click)="onLogout()" class="primary-btn">Logout</a>
+          <a (click)="logout()" class="primary-btn">Logout</a>
         </li>
         } @else {
         <li><a routerLink="/login" class="primary-btn">Sign-in</a></li>

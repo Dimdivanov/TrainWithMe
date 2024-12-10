@@ -10,18 +10,30 @@ import { BlogsComponent } from './features/blogs/blogs.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { BlogItemComponent } from './features/blogs/blog-item/blog-item.component';
 import { ArticleCreateComponent } from './features/dashboard/article-create/article-create.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  {path: 'articles', component: ArticleCreateComponent},
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'articles', component: ArticleCreateComponent },
   { path: 'about', component: AboutComponent },
   { path: 'trainer', component: TrainerComponent },
-  { path: 'blogs', children: [
-    {path: '', component: BlogsComponent},
-    {path: ':themeId', component: BlogItemComponent}
-  ] },
+  {
+    path: 'blogs',
+    children: [
+      { path: '', component: BlogsComponent },
+      {
+        path: ':themeId',
+        component: BlogItemComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
+  },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
