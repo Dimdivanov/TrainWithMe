@@ -21,8 +21,10 @@ export class ArticleCreateComponent {
     articleContent: string
   ) {
     event.preventDefault();
-    console.log('we are inside the add Article');
-
+    //creating an article when JWT injected and intercepted request
     console.log({ title, imageUrl, placement, articleContent });
+    this.articleService
+      .createArticle(title, imageUrl, placement, articleContent)
+      .subscribe((data) => console.log(data));
   }
 }
