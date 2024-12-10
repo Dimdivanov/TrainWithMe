@@ -71,3 +71,19 @@
   background-color: #ffd700;
   transform: scale(1.05);
 }
+/* register button in login */
+.login-message {
+  text-align: center;
+  margin-top: 20px;
+}
+.login-message .register-link {
+  color: #ff851b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.login-message .register-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}

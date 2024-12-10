@@ -48,19 +48,29 @@
       </div>
       <div class="form-field account-type">
         <p>Select Account Type:</p>
-        <div class="account-buttons">
-          <button type="button" class="account-btn" data-type="client">
-            Client
-          </button>
-          <button type="button" class="account-btn" data-type="trainer">
-            Trainer
-          </button>
-          <input type="hidden" id="account-type" name="account-type" required />
+        <div class="account-options">
+          <label>
+            <input type="radio" name="account-type" value="client" required />
+            <span class="custom-radio">Client</span>
+          </label>
+          <label>
+            <input type="radio" name="account-type" value="trainer" required />
+            <span class="custom-radio">Trainer</span>
+          </label>
         </div>
       </div>
       <div class="form-btns">
         <button type="submit" class="sign-up-btn">Sign Up</button>
       </div>
+      <div class="login-message">
+        Already registered? <a routerLink="/login" class="login-link">Log in</a>
+      </div>
     </form>
+  </div>
+  <div class="image-container">
+    <img
+      src="https://img.freepik.com/premium-photo/fitness-trainer-demonstrating-new-exercise-client-gym_1314467-200090.jpg"
+      alt="default.png"
+    />
   </div>
 </section>

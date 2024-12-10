@@ -12,7 +12,18 @@ export class UserServiceService {
     } catch (error) {}
   }
 
-  login() {}
-  logout() {}
-  
+  login() {
+    this.user = {
+      name: 'Mitaka',
+      email: 'mitaka@abv.bg',
+      password: '12345',
+      accountType: 'trainer',
+      id: '1dsasdasdadsda',
+    };
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  }
+  logout() {
+    this.user = null;
+    localStorage.removeItem(this.USER_KEY);
+  }
 }
