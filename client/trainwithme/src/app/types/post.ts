@@ -45,5 +45,5 @@ export interface Article {
   title: string;
   imageUrl: string;
   placement: string;
-  textContent: string;
+  articleContent: string;
 }

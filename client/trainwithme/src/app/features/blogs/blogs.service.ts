@@ -24,9 +24,10 @@ export class BlogsService {
     articleTitle: string,
     imageUrl: string,
     placemment: string,
-    textContent: string
+    articleContent: string
   ) {
     const { apiUrl } = environment;
-    return this.http.post<Article>
+    const payload = { articleTitle, imageUrl, placemment, articleContent };
+    return this.http.post<Article>(`${apiUrl}/themes`, payload);
   }
 }
