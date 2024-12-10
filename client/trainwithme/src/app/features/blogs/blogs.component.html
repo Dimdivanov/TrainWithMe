@@ -10,7 +10,7 @@
   @if (!isLoading) {
   <div class="blogs-list">
     @for (blog of blogs; track $index) {
-    <div class="blog-card" [routerLink]="blog._id">
+    <div class="blog-card" [routerLink]="blog._id" appMousehover>
       <h3 class="blog-title">{{ blog.themeName }}</h3>
       <p class="blog-snippet">Click to read more...</p>
     </div>

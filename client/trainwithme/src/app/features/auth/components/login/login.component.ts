@@ -18,11 +18,11 @@ export class LoginComponent {
   ) {}
 
   login(form: NgForm) {
-    this.userService.login();
     console.log(form.form.value);
-    this.router.navigate(['/dashboard']);
     if (form.invalid) {
       return;
     }
+    this.userService.login();
+    this.router.navigate(['/dashboard']);
   }
 }

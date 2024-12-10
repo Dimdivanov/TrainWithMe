@@ -3,11 +3,12 @@ import { BlogsService } from './blogs.service';
 import { Theme } from '../../types/post';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { RouterLink } from '@angular/router';
+import { MousehoverDirective } from '../../directives/mousehover.directive';
 
 @Component({
   selector: 'app-blogs',
   standalone: true,
-  imports: [LoaderComponent, RouterLink],
+  imports: [LoaderComponent, RouterLink, MousehoverDirective],
   providers: [BlogsService],
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css',

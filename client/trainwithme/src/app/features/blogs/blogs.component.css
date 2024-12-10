@@ -39,10 +39,6 @@
   color: inherit;
 }
 
-.blog-card:hover {
-  transform: scale(1.05);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 15px;
-}
 
 /* Blog title styling */
 .blog-title {
