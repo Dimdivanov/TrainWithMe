@@ -1,9 +1,20 @@
-@if(isLoading){
-<div class="loader-container">
-  <app-loader />
+<div class="blogs-page">
+  <!-- Loader while fetching blogs -->
+  @if (isLoading) {
+  <div class="loader-container">
+    <app-loader></app-loader>
+  </div>
+  }
+
+  <!-- Blogs list -->
+  @if (!isLoading) {
+  <div class="blogs-list">
+    @for (blog of blogs; track $index) {
+    <div class="blog-card" [routerLink]="blog._id">
+      <h3 class="blog-title">{{ blog.themeName }}</h3>
+      <p class="blog-snippet">Click to read more...</p>
+    </div>
+    }
+  </div>
+  }
 </div>
-} @for (blog of blogs; track $index) {
-<div class="content-blogs">
-  <a [routerLink]="blog._id">{{ blog.themeName }}</a>
-</div>
-}

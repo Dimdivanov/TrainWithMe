@@ -28,7 +28,6 @@ export interface Post {
 
 export interface Theme {
   username: string;
-  createdBy: string;
   subscribers: string[];
   posts: Post[];
   _id: string;
@@ -37,4 +36,14 @@ export interface Theme {
   created_at: string;
   updatedAt: string;
   __v: number;
+}
+
+export interface Article {
+  _id: string;
+  createdBy: string;
+  subscribers: string[];
+  title: string;
+  imageUrl: string;
+  placement: string;
+  textContent: string;
 }
