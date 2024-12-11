@@ -5,11 +5,17 @@ header {
   padding: 0 50px 0 50px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  align-content: center;
+  height: 80px;
 }
 header .logo-container img {
   width: 100px;
 }
+/* logo effects */
+
+/* logo effects end */
 header .menu-container {
   display: flex;
 }

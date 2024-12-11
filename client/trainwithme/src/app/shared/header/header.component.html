@@ -21,7 +21,7 @@
     <nav>
       <ul>
         @if (isLoggedIn) {
-        <li>{{ name }}</li>
+        <li class="user-profile">{{ name }}</li>
         <li>
           <a (click)="logout()" class="primary-btn">Logout</a>
         </li>

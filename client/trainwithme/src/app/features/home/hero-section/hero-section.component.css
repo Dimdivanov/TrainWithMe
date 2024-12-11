@@ -1,69 +1,70 @@
 /* Main */
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(155deg, #ff851b, #ffd700);
-  padding: 50px 0;
+  position: relative;
+  background-image: url("../assets/hero-background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 290px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(138, 39, 14, 0.7); /* overlay transparency */
+  z-index: -1;
 }
 .hero-section .content-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 70px;
 }
 .hero-section .content-container .content {
-  max-width: 800px;
+  max-width: 1200px;
 }
 .content-container .content > h1 {
-  font-size: 3.6em;
-  color: #222222;
+  font-size: 4.2em;
+  color: white;
 }
 .content-container .content p {
-  font-size: 1.5em;
-  color: #222222;
+  font-size: 1.9em;
+  color: rgb(199, 198, 198);
 }
 .content-container .hero-btns {
   display: flex;
-  gap: 150px;
+  justify-content: center;
 }
-
-.hero-btns .client-btn {
-  background-color: #fff;
-  color: #ff851b;
-  padding: 12px 30px;
-  border-radius: 15px;
-  font-size: 16px;
-  font-weight: 700;
-  border: 2px solid #ff851b;
+/* Hero - Button */
+.hero-btns .fitness-btn {
+  background-color: transparent; /* Transparent background */
+  color: white;
+  padding: 14px 35px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid orangered;
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-}
-.hero-btns .client-btn:hover {
-  background-color: #ff851b;
-  color: #fff;
-  border: 2px solid #ff851b;
-  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(250, 60, 2, 0.4);
 }
 
-.hero-btns .trainer-btn {
-  background-color: #ffd700;
-  color: #212121;
-  padding: 12px 30px;
-  border-radius: 15px;
-  font-size: 16px;
-  font-weight: 700;
-  border: 2px solid #ffd700;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-.hero-btns .trainer-btn:hover {
-  background-color: #ff851b;
-  color: #fff;
-  border: 2px solid #ff851b;
-  transform: scale(1.05);
+.hero-btns .fitness-btn:hover {
+  background-color: orangered;
+  color: #fff5e1;
+  border: 2px solid orangered;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 15px rgba(250, 60, 2, 0.4);
 }
