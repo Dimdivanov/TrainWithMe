@@ -40,3 +40,7 @@ h5,
 h6 {
   font-family: "Montserrat";
 }
+
+.hero-section {
+  background-image: url("../public/hero-background.jpeg");
+}

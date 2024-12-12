@@ -1,6 +1,6 @@
 /* Header section */
 header {
-  background-color: #212121;
+  background-color: #1a1919;
   color: #fff;
   padding: 0 50px 0 50px;
   display: flex;
@@ -13,12 +13,19 @@ header {
 header .logo-container img {
   width: 100px;
 }
-/* logo effects */
+/* user profile name*/
+.user-profile {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+/* user profile ends*/
 
-/* logo effects end */
 header .menu-container {
   display: flex;
 }
+/* nav menu */
 .nav-items {
   margin: auto;
   display: flex;
@@ -40,11 +47,13 @@ header .nav-items a:hover {
 .nav-items > nav ul,
 .nav-sign-up > nav ul {
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 header .nav-items a:hover::after {
   width: 100%;
 }
+
 header .nav-sign-up a:nth-child(1) {
   background-color: transparent;
   border: 2px solid #e4381c;
