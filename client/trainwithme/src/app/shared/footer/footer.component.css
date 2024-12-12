@@ -21,10 +21,10 @@ footer {
 .logo-container img {
   width: 100%;
 }
-/* */
+/* right side */
 .footer-links {
   display: flex;
-  gap: 50px;
+  gap: 20px;
 }
 /* bottom container */
 .footer-bottom-container {
