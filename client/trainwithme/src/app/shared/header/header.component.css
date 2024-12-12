@@ -1,37 +1,60 @@
 /* Header section */
 header {
-  background-color: #1a1919;
-  color: #fff;
-  padding: 0 50px 0 50px;
+  position: relative; /* Enable absolute positioning for child elements */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  align-content: center;
-  height: 80px;
+  justify-content: space-between; /* Space out logo and sign-up */
+  height: 90px;
+  background-color: #1a1919;
+  padding: 10px 50px;
+  color: #fff;
 }
-header .logo-container img {
+
+/* Logo container */
+.logo-container {
+  flex-shrink: 0; /* Prevent the logo from shrinking */
+}
+
+.logo-container img {
   width: 100px;
 }
-/* user profile name*/
-.user-profile {
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-}
-/* user profile ends*/
 
-header .menu-container {
-  display: flex;
-}
-/* nav menu */
+/* Navigation menu - center it */
 .nav-items {
-  margin: auto;
+  position: absolute;
+  left: 50%; /* Start at the center */
+  transform: translateX(-50%); /* Offset to truly center */
   display: flex;
   justify-content: center;
 }
-header .nav-items a::after {
+
+.nav-items nav ul {
+  display: flex;
+  gap: 30px; /* Space between nav items */
+}
+
+/* Sign-up menu */
+.nav-sign-up {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Utility styles for navigation links */
+.nav-items a {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.4em;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-items a:hover {
+  color: #e4381c;
+}
+
+.nav-items a::after {
   content: "";
   position: absolute;
   bottom: -3px;
@@ -41,41 +64,15 @@ header .nav-items a::after {
   background-color: #e4381c;
   transition: width 0.3s ease-in-out;
 }
-header .nav-items a:hover {
-  color: #e4381c;
-}
-.nav-items > nav ul,
-.nav-sign-up > nav ul {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-header .nav-items a:hover::after {
+
+.nav-items a:hover::after {
   width: 100%;
 }
+.nav-sign-up nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-header .nav-sign-up a:nth-child(1) {
-  background-color: transparent;
-  border: 2px solid #e4381c;
-}
-header .nav-sign-up a:nth-child(1):hover {
-  background-color: #e4381c;
-  color: #fff;
-}
-header .nav-items a {
-  color: #fff;
-  font-weight: 500;
-  font-size: 1.4em;
-  position: relative;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-header .nav-sign-up a {
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #e4381c;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
+/* Button styles in sign-up menu */
+/* to do */
