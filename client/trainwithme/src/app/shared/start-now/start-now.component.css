@@ -1,0 +1,23 @@
+.get-started {
+  background: linear-gradient(45deg, #e16521, #e4381c);
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.text-content {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.start-now-link {
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 3px solid white;
+  color: white;
+}
+
+.start-now-link a {
+  font-size: 1.6em;
+  font-weight: 600;
+}

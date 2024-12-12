@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { StartNowComponent } from '../../shared/start-now/start-now.component';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [StartNowComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })

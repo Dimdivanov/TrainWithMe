@@ -12,6 +12,17 @@
   height: 300px;
   width: 100%;
   overflow: hidden;
+  position: relative;
+}
+.banner-container h2 {
+  font-size: 2.6em;
+  text-transform: uppercase;
+  color: white;
+  position: absolute; /* Position the h2 absolutely */
+  top: 50%; /* Move the h2 to 50% from the top of the container */
+  left: 50%; /* Move the h2 to 50% from the left of the container */
+  transform: translate(-50%, -50%); /* Center the h2 by translating it back by 50% of its height and width */
+  text-align: center; /* Optional: Centers the text if it spans multiple lines */
 }
 .banner-container img {
   width: 100%;
@@ -34,7 +45,7 @@
   text-transform: uppercase;
 }
 .container p {
-  color: #ff4500;
+  color: orangered;
   font-size: 1.2em;
 }
 /* about img */
