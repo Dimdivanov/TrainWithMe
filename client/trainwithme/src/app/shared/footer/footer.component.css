@@ -9,15 +9,48 @@ footer {
   display: flex;
   align-content: center;
   justify-content: center;
+  height: 30vh;
 }
 .cta-train {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 30%;
 }
 .cta-train .logo-container {
   width: 100px;
 }
+.cta-train p {
+  width: 70%;
+  font-size: 1.2em;
+  color: #66696f;
+}
+.text-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* follow us links */
+.follow-us-links {
+  display: flex;
+  gap: 10px;
+}
+/* footer links */
+.footer-links {
+  padding-top: 20px;
+}
+.footer-links .working-hours,
+.footer-links .get-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-links .programs,
+.programs ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* logo */
 .logo-container img {
   width: 100%;
 }
