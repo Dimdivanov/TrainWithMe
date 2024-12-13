@@ -1,0 +1,120 @@
+.contact-section {
+  background-color: #151515;
+  color: white;
+  padding: 50px 0;
+}
+
+.content {
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  gap: 100px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+/* Left side */
+.left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.information-container,
+.address-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.information-container h4,
+.address-container h4 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  color: orangered;
+}
+
+.information-container ul,
+.address-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-container li {
+  font-size: 1.2em;
+}
+
+.left-container i {
+  font-size: 1.6em;
+  color: orangered;
+}
+
+/* Right container */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form h4 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  color: orangered;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 600px;
+}
+
+.details-container {
+  display: flex;
+  gap: 20px;
+}
+
+.name-container input,
+.email-container input,
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 2px solid #333;
+  background-color: #222;
+  color: white;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.name-container input:focus,
+.email-container input:focus,
+textarea:focus {
+  outline: none;
+  border-color: orangered;
+  box-shadow: 0 0 5px orangered;
+}
+
+textarea {
+  resize: none; /* Prevents resizing of textarea */
+  height: 150px;
+}
+
+/* Button styling */
+.message-btn {
+  width: 150px;
+  padding: 10px 25px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.message-btn:hover {
+  background-color: #ff4500;
+}
