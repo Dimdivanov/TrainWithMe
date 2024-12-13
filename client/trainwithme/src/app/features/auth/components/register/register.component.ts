@@ -16,8 +16,14 @@ import { RouterLink } from '@angular/router';
 })
 export class RegisterComponent {
   registerForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+    ]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
@@ -30,6 +36,7 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
     } else {
+      console.log(this.registerForm);
       console.log('Register form is not Valid');
     }
   }

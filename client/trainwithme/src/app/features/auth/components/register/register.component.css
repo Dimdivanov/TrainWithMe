@@ -61,6 +61,11 @@ h2 {
   background-color: #fff;
 }
 
+.icon-wrapper {
+  margin-right: 10px;
+  font-size: 1.2em; /* Adjust size as needed */
+  color: #666; /* Adjust color */
+}
 /* Account Type Radio Buttons */
 .account-type {
   margin-top: 20px;
@@ -168,4 +173,16 @@ h2 {
 .login-message .login-link:hover {
   text-decoration: underline;
   font-weight: 700;
+}
+
+/* correct styles register */
+.correct-field {
+  color: #28a745; /* Green border for valid input */
+  
+}
+
+/* error styles register */
+.error-field {
+  color: #dc3545; 
+  font-weight: 800;
 }

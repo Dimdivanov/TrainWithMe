@@ -18,7 +18,6 @@ export class LoginComponent {
   ) {}
 
   login(form: NgForm) {
-    console.log(form.form.value);
     if (form.invalid) {
       return;
     }

@@ -7,7 +7,9 @@
       class="sign-up-form"
     >
       <div class="form-field">
-        <label for="username">Username</label>
+        <div class="icon-wrapper">
+          <i class="fa fa-user"></i>
+        </div>
         <input
           type="text"
           id="username"
@@ -16,9 +18,25 @@
           placeholder="Enter your username"
           formControlName="username"
         />
+        @if(registerForm.get('username')?.touched){
+        <div class="error-container">
+          @if(registerForm.get('username')?.errors?.['required']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Username is required!
+          </div>
+          } @if(registerForm.get('username')?.errors?.['minlength']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Minimum length is 6
+            characters!
+          </div>
+          }
+        </div>
+        }
       </div>
       <div class="form-field">
-        <label for="email">Email</label>
+        <div class="icon-wrapper">
+          <i class="fa fa-envelope"></i>
+        </div>
         <input
           type="email"
           id="email"
@@ -27,9 +45,24 @@
           placeholder="Enter your email"
           formControlName="email"
         />
+        @if(registerForm.get('email')?.touched){
+        <div class="error-container">
+          @if(registerForm.get('email')?.errors?.['required']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Email is required!
+          </div>
+          } @if(registerForm.get('email')?.errors?.['pattern']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Email not supported!
+          </div>
+          }
+        </div>
+        }
       </div>
       <div class="form-field">
-        <label for="password">Password</label>
+        <div class="icon-wrapper">
+          <i class="fa fa-lock"></i>
+        </div>
         <input
           type="password"
           id="password"
@@ -40,7 +73,9 @@
         />
       </div>
       <div class="form-field">
-        <label for="rePassword">Confirm Password</label>
+        <div class="icon-wrapper">
+          <i class="fa fa-check-circle"></i>
+        </div>
         <input
           type="password"
           id="rePassword"
