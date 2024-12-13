@@ -71,6 +71,20 @@
           placeholder="Enter your password"
           formControlName="password"
         />
+        @if(registerForm.get('password')?.touched){
+        <div class="error-container">
+          @if(registerForm.get('password')?.errors?.['required']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Password is required!
+          </div>
+          } @if(registerForm.get('password')?.errors?.['minlength']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Minimum length is 6
+            characters!
+          </div>
+          }
+        </div>
+        }
       </div>
       <div class="form-field">
         <div class="icon-wrapper">
@@ -84,9 +98,28 @@
           placeholder="Confirm your password"
           formControlName="rePassword"
         />
+        @if(registerForm.get('rePassword')?.touched){
+        <div class="error-container">
+          @if(registerForm.get('rePassword')?.errors?.['required']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> rePassword is required!
+          </div>
+          }
+          @if(registerForm.get('rePassword')?.errors?.['passwordMatchValidator']){
+          <div class="error-field">
+            <i class="fa fa-exclamation-circle"></i> Password Mismatch!
+          </div>
+          }
+        </div>
+        }
       </div>
       <div class="form-field account-type">
         <p>Select Account Type:</p>
+        <div class="error-field">
+          @if(registerForm.get('account')?.errors?.['required'] ||
+          registerForm.get('account')?.touched){
+          <i class="fa fa-exclamation-circle"></i> Account Type is required! }
+        </div>
         <div class="account-options">
           <label>
             <input
