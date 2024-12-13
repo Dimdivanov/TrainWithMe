@@ -1,5 +1,5 @@
 export interface UserForAuth {
-  name: string;
+  username: string;
   email: string;
   password: string;
   accountType: string;

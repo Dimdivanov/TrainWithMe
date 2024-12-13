@@ -14,7 +14,7 @@ export class HeaderComponent {
     return this.userService.isLogged;
   }
   get name(): string {
-    return this.userService.user?.name || '';
+    return this.userService.user?.username || '';
   }
   constructor(
     private userService: UserServiceService,

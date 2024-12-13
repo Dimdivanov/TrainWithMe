@@ -1,16 +1,20 @@
 <section class="sign-up-section">
   <div class="form-container">
     <h2>Create Your Account</h2>
-    <form action="#" method="POST" class="sign-up-form">
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="onRegisterSubmit()"
+      class="sign-up-form"
+    >
       <div class="form-field">
-        <label for="name">Name</label>
+        <label for="username">Username</label>
         <input
           type="text"
-          id="name"
-          name="name"
-          autocomplete="name"
-          placeholder="Enter your name"
-          required
+          id="username"
+          name="username"
+          autocomplete="username"
+          placeholder="Enter your username"
+          formControlName="username"
         />
       </div>
       <div class="form-field">
@@ -21,7 +25,7 @@
           name="email"
           autocomplete="email"
           placeholder="Enter your email"
-          required
+          formControlName="email"
         />
       </div>
       <div class="form-field">
@@ -32,29 +36,39 @@
           name="password"
           autocomplete="password"
           placeholder="Enter your password"
-          required
+          formControlName="password"
         />
       </div>
       <div class="form-field">
-        <label for="confirm-password">Confirm Password</label>
+        <label for="rePassword">Confirm Password</label>
         <input
           type="password"
-          id="confirm-password"
-          name="confirm-password"
-          autocomplete="confirm-password"
+          id="rePassword"
+          name="rePassword"
+          autocomplete="rePassword"
           placeholder="Confirm your password"
-          required
+          formControlName="rePassword"
         />
       </div>
       <div class="form-field account-type">
         <p>Select Account Type:</p>
         <div class="account-options">
           <label>
-            <input type="radio" name="account-type" value="client" required />
+            <input
+              type="radio"
+              name="account"
+              value="client"
+              formControlName="account"
+            />
             <span class="custom-radio">Client</span>
           </label>
           <label>
-            <input type="radio" name="account-type" value="trainer" required />
+            <input
+              type="radio"
+              name="account"
+              value="trainer"
+              formControlName="account"
+            />
             <span class="custom-radio">Trainer</span>
           </label>
         </div>
