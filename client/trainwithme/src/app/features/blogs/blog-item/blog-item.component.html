@@ -1,36 +1,55 @@
-<div class="theme-container">
-  <div class="theme-header">
-    <h1>{{ theme?.themeName }}</h1>
-    <p class="theme-meta">
-      Created by <span>{{ theme?.userId }}</span> on
-      <span>{{ formatDate }}</span>
-    </p>
-  </div>
+<section class="theme-container">
+  <article class="article-content">
+    <div class="theme-header">
+      <h1>{{ theme?.themeName }}</h1>
+      <p class="theme-meta">
+        Created by <span>{{ theme?.userId }}</span> on
+        <span>{{ formatDate }}</span>
+      </p>
+    </div>
 
-  <div class="theme-info">
-    <p><strong>Subscribers:</strong> {{ theme?.subscribers?.length || 0 }}</p>
-    <p><strong>Posts:</strong> {{ theme?.posts?.length || 0 }}</p>
-  </div>
+    <div class="theme-info">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit incidunt
+        quas vitae, voluptates temporibus odit! Voluptates, asperiores dolorem.
+        Provident quisquam possimus eum ea nobis laudantium libero
+        necessitatibus quaerat facilis hic, pariatur ex commodi voluptas cum
+        ducimus, sequi alias sed similique dolorum doloremque omnis!
+      </p>
+      <p><strong>Subscribers:</strong> {{ theme?.subscribers?.length || 0 }}</p>
+      <p><strong>Posts:</strong> {{ theme?.posts?.length || 0 }}</p>
+    </div>
 
-  <div class="theme-posts">
-    <h2>Comments</h2>
-    <ul>
-      @for (post of theme?.posts; track $index) {
-      <li class="post-item">
-        <div class="post-header">
-          <a href="#">
-            <strong>{{ post.userId.username }}</strong> created at
-            <time>{{ post.created_at }}</time>
-          </a>
-        </div>
-        <div class="post-content">
-          <p>{{ post.text }}</p>
-        </div>
-        <div class="post-likes">
-          <p><span>❤️</span> {{ post.likes.length }} Likes</p>
-        </div>
-      </li>
-      }
-    </ul>
-  </div>
-</div>
+    <div class="theme-posts">
+      <h2>Comments</h2>
+      <ul>
+        @for (post of theme?.posts; track $index) {
+        <li class="post-item">
+          <div class="post-header">
+            <a href="#">
+              <strong>{{ post.userId.username }}</strong> created at
+              <time>{{ post.created_at }}</time>
+            </a>
+          </div>
+          <div class="post-content">
+            <p>{{ post.text }}</p>
+          </div>
+          <div class="post-likes">
+            <p><span>❤️</span> {{ post.likes.length }} Likes</p>
+          </div>
+        </li>
+        }
+      </ul>
+    </div>
+  </article>
+  <aside class="latest-content">
+    <div class="latest-article">
+      <h4>Latest Articles:</h4>
+      <div class="article-list">
+        <p>Article 1 link</p>
+        <p>Article 2 link</p>
+        <p>Article 3 link</p>
+      </div>
+    </div>
+  </aside>
+</section>

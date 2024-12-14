@@ -1,11 +1,17 @@
 .theme-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
   background: #212121;
-  border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   color: #fff;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  gap: 50px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* article content */
+.article-content {
+  flex: 0 0 50%;
 }
 
 .theme-header h1 {
@@ -25,7 +31,6 @@
   padding: 15px;
   background: #333;
   border-radius: 8px;
-  box-sizing: border-box;
 }
 
 .theme-info p {
@@ -52,7 +57,6 @@
   margin-bottom: 20px;
   padding: 20px;
   background: #333;
-  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -109,4 +113,18 @@ a {
 
 a:hover {
   color: #e4381c;
+}
+
+/* latest content */
+.latest-content {
+  background: #333;
+  margin-top: 90px;
+  max-height: 30vh;
+  padding: 15px;
+  flex: 0 1 10%;
+}
+.latest-article {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
