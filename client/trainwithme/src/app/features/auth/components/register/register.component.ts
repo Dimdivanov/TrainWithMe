@@ -40,9 +40,11 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
     } else {
-      console.log(this.registerForm);
+      //marking every button with touched if not trigger the error
+      Object.keys(this.registerForm.controls).forEach((controlName) => {
+        this.registerForm.get(controlName)?.markAsTouched();
+      });
       console.log('Register form is not Valid');
     }
   }
 }
-

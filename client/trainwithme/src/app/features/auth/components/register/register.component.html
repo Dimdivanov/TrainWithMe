@@ -102,10 +102,10 @@
         <div class="error-container">
           @if(registerForm.get('rePassword')?.errors?.['required']){
           <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> rePassword is required!
+            <i class="fa fa-exclamation-circle"></i> Confirm password is
+            required!
           </div>
-          }
-          @if(registerForm.get('rePassword')?.errors?.['passwordMatchValidator']){
+          } @if(registerForm.errors?.['passwordsDoNotMatch']){
           <div class="error-field">
             <i class="fa fa-exclamation-circle"></i> Password Mismatch!
           </div>
@@ -115,11 +115,12 @@
       </div>
       <div class="form-field account-type">
         <p>Select Account Type:</p>
+        @if(registerForm.get('account')?.invalid &&
+        registerForm.get('account')?.touched){
         <div class="error-field">
-          @if(registerForm.get('account')?.errors?.['required'] ||
-          registerForm.get('account')?.touched){
-          <i class="fa fa-exclamation-circle"></i> Account Type is required! }
+          <i class="fa fa-exclamation-circle"></i> Account Type is required!
         </div>
+        }
         <div class="account-options">
           <label>
             <input

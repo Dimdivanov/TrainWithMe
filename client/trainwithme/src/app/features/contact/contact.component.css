@@ -31,7 +31,6 @@
   margin: auto;
   display: flex;
   gap: 100px;
-
 }
 
 /* Left side */
@@ -87,15 +86,19 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   width: 600px;
 }
 
 .details-container {
   display: flex;
   gap: 20px;
+  flex-grow: 1;
 }
-
+.name-container,
+.email-container {
+  width: 50%;
+}
 .name-container input,
 .email-container input,
 textarea {
@@ -122,9 +125,15 @@ textarea {
   height: 150px;
 }
 
+.msg-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 /* Button styling */
 .message-btn {
-  width: 150px;
+  width: 30%;
   padding: 10px 25px;
   background-color: orangered;
   color: white;
