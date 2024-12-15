@@ -8,17 +8,14 @@ export class BlogsService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    const { apiUrl } = environment;
-    return this.http.get<Theme[]>(`${apiUrl}/themes`);
+    return this.http.get<Theme[]>(`/api/themes`);
   }
   getSingleBlog(id: string) {
-    const { apiUrl } = environment;
-    return this.http.get<Theme>(`${apiUrl}/themes/${id}`);
+    return this.http.get<Theme>(`/api/themes/${id}`);
   }
   //todo take the user id profile
   getBlogCreator(id: string) {
-    const { apiUrl } = environment;
-    return this.http.get<User>(`${apiUrl}/${id}`);
+    return this.http.get<User>(`/api/${id}`);
   }
   
 }

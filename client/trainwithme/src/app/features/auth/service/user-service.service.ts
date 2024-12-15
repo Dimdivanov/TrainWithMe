@@ -1,38 +1,50 @@
 import { Injectable } from '@angular/core';
 import { UserForAuth } from '../../../types/userAuth';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserServiceService {
-  USER_KEY = '[user-key]';
+  private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
+  private user$ = this.user$$.asObservable();
+
   user: UserForAuth | null = null;
 
-  get isLogged(): boolean {
-    return !!this.user;
+  constructor(private http: HttpClient) {}
+
+  login(email: string, password: string) {
+    return this.http
+      .post<UserForAuth>('/api/login', { email, password })
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  constructor() {
-    try {
-      const isUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(isUser);
-    } catch (error) {
-      this.user = null;
-    }
+  register(
+    username: string,
+    email: string,
+    password: string,
+    rePassword: string,
+    account: string
+  ) {
+    return this.http
+      .post<UserForAuth>('/api/register', {
+        username,
+        email,
+        password,
+        rePassword,
+        account,
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  login() {
-    this.user = {
-      username: 'Mitaka',
-      email: 'mitaka@abv.bg',
-      password: '12345',
-      accountType: 'trainer',
-      id: '1dsasdasdadsda',
-    };
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-  }
   logout() {
     this.user = null;
-    localStorage.removeItem(this.USER_KEY);
+  }
+
+  getProfile() {
+    return this.http
+      .get<UserForAuth>('/api/users/profile')
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 }

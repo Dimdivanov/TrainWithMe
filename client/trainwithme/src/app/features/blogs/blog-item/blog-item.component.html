@@ -4,7 +4,7 @@
       <h1>{{ theme?.themeName }}</h1>
       <p class="theme-meta">
         Created by <span>{{ theme?.userId }}</span> on
-        <span>{{ formatDate }}</span>
+        <span>{{ formatDate | date : "dd-MM-yyyy" }}</span>
       </p>
     </div>
 
@@ -28,7 +28,7 @@
           <div class="post-header">
             <a href="#">
               <strong>{{ post.userId.username }}</strong> created at
-              <time>{{ post.created_at }}</time>
+              <time>{{ post.created_at | date : "full" }}</time>
             </a>
           </div>
           <div class="post-content">

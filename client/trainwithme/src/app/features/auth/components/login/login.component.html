@@ -1,7 +1,7 @@
 <section class="login-section">
   <div class="form-container">
     <h2>Login</h2>
-    <form class="login" #form="ngForm" (ngSubmit)="login(form)">
+    <form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-field">
         <label for="email">Email</label>
         <input
@@ -10,9 +10,8 @@
           name="email"
           placeholder="Enter your email"
           autocomplete="email"
+          formControlName="email"
           required
-          ngModel
-          #inputEmail="ngModel"
         />
       </div>
       <div class="form-field">
@@ -23,13 +22,12 @@
           name="password"
           placeholder="Enter your password"
           autocomplete="current-password"
+          formControlName="password"
           required
-          ngModel
-          #inputPasswor="ngModel"
         />
       </div>
       <div class="form-btns">
-        <button type="submit" class="login-btn">Login</button>
+        <button class="login-btn">Login</button>
       </div>
       <div class="login-message">
         Not registered?

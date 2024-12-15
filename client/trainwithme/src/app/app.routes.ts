@@ -18,7 +18,6 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
   },
   { path: 'articles', component: ArticleCreateComponent },
   { path: 'about', component: AboutComponent },
@@ -30,7 +29,6 @@ export const routes: Routes = [
       {
         path: ':themeId',
         component: BlogItemComponent,
-        canActivate: [AuthGuard],
       },
     ],
   },

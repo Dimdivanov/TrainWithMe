@@ -1,27 +1,44 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { UserServiceService } from '../../service/user-service.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  //use this service fake to login and then the router to navigate when logged in
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  });
+
   constructor(
     private userService: UserServiceService,
     private router: Router
   ) {}
 
-  login(form: NgForm) {
-    if (form.invalid) {
+  login() {
+    if (this.loginForm.invalid) {
+      console.error('Invalid Login Form');
       return;
     }
-    this.userService.login();
-    this.router.navigate(['/dashboard']);
+
+    console.log(this.loginForm.get('email')?.value);
+
+    const email = this.loginForm.get('email')?.value || '';
+    const password = this.loginForm.get('password')?.value || '';
+
+    this.userService.login(email, password).subscribe(() => {
+      this.router.navigate(['/dashboard']);
+    });
   }
 }

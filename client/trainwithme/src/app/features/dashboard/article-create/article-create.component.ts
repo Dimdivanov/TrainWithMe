@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArticleServiceService } from '../article-service.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-article-create',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   providers: [ArticleServiceService],
   templateUrl: './article-create.component.html',
   styleUrl: './article-create.component.css',

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environments.development';
 import { Article } from '../../types/post';
 
 @Injectable()
@@ -12,8 +11,7 @@ export class ArticleServiceService {
     placemment: string,
     articleContent: string
   ) {
-    const { apiUrl } = environment;
     const payload = { articleTitle, imageUrl, placemment, articleContent };
-    return this.http.post<Article>(`${apiUrl}/themes`, payload);
+    return this.http.post<Article>(`/api/themes`, payload);
   }
 }

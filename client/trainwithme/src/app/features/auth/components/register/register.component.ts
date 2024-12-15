@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { passwordMatchValidator } from '../../util/password.validator';
+import { UserServiceService } from '../../service/user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -36,9 +38,19 @@ export class RegisterComponent {
     { validators: passwordMatchValidator }
   );
 
+  constructor(
+    private userService: UserServiceService,
+    private router: Router
+  ) {}
+
   onRegisterSubmit() {
+    const { username, email, password, rePassword, account } =
+      this.registerForm.value;
+
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      this.userService
+        .register(username!, email!, password!, rePassword!, account!)
+        .subscribe(() => this.router.navigate(['/dashboard']));
     } else {
       //marking every button with touched if not trigger the error
       Object.keys(this.registerForm.controls).forEach((controlName) => {
