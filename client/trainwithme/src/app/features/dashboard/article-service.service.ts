@@ -5,13 +5,9 @@ import { Article } from '../../types/post';
 @Injectable()
 export class ArticleServiceService {
   constructor(private http: HttpClient) {}
-  createArticle(
-    articleTitle: string,
-    imageUrl: string,
-    placemment: string,
-    articleContent: string
-  ) {
-    const payload = { articleTitle, imageUrl, placemment, articleContent };
+
+  createArticle(themeName: string, postText: string, imageUrl: string) {
+    const payload = { themeName, postText, imageUrl };
     return this.http.post<Article>(`/api/themes`, payload);
   }
 }

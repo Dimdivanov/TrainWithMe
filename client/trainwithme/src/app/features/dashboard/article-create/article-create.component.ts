@@ -22,12 +22,8 @@ export class ArticleCreateComponent {
       Validators.required,
       Validators.minLength(6),
     ]),
+    postText: new FormControl('', [Validators.required]),
     imageUrl: new FormControl('', [Validators.required]),
-    placement: new FormControl('', [Validators.required]),
-    articleContent: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(500),
-    ]),
   });
   constructor(
     private articleService: ArticleServiceService,
@@ -35,9 +31,7 @@ export class ArticleCreateComponent {
   ) {}
 
   postArticle() {
-    const { themeName, imageUrl, placement, articleContent } =
-      this.addArticleForm.value;
-    console.log(this.addArticleForm.value);
+    const { themeName, postText, imageUrl } = this.addArticleForm.value;
 
     if (this.addArticleForm.invalid) {
       return;
@@ -45,7 +39,7 @@ export class ArticleCreateComponent {
 
     if (this.addArticleForm.valid) {
       this.articleService
-        .createArticle(themeName!, imageUrl!, placement!, articleContent!)
+        .createArticle(themeName!, postText!, imageUrl!)
         .subscribe(() => this.router.navigate(['/blogs']));
     }
   }

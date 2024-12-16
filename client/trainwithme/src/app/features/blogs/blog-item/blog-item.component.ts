@@ -16,6 +16,7 @@ export class BlogItemComponent implements OnInit {
   theme: Theme | null = null;
   formatDate: string | null = null;
   createdBy: string | null = null;
+  imageUrl: string | null = null;
 
   constructor(
     private route: ActivatedRoute,

@@ -1,45 +1,77 @@
 <section class="dashboard">
   <div class="banner-container">
-    <h2>Dashboard type: Trainer</h2>
+    <h2>Dashboard: {{ dashboardData?.type }}</h2>
     <img src="/dashboard-banner.jpg" alt="dashboard-banner.jpg" />
   </div>
-  <div class="biography-container">
-    <div class="left-side">
-      <div class="profile-pic">
-        <img src="/profile-icon.jpg" alt="profile-pic" />
+  <!-- READ ONLY MODE START-->
+  @if(!isEditMode){
+  <ng-container>
+    <div class="biography-container">
+      <div class="left-side">
+        <div class="profile-pic">
+          <img src="/profile-icon.jpg" alt="profile-pic" />
+        </div>
+        <div class="social-links">
+          <h2>Account Info:</h2>
+          <p class="create-date">
+            Created at:
+            {{ (dashboardData?.created_at | date : "longDate") || "N/A" }}
+          </p>
+          <p class="themes">
+            Articles: {{ dashboardData?.themes?.length || "N/A" }}
+          </p>
+          <p class="themes">
+            Posts: {{ dashboardData?.posts?.length || "N/A" }}
+          </p>
+        </div>
       </div>
-      <div class="type-trainer">
-        <h2>Type of trainer:</h2>
-        <p class="type">Fitness</p>
-      </div>
-      <div class="social-links">
-        <h2>Find me:</h2>
-        <p class="in-social">Instagram</p>
-        <p class="fb-social">Facebook</p>
+      <div class="right-side">
+        <h2>{{ dashboardData?.username }}'s Bio:</h2>
+        <div class="bio">
+          <p>
+            My name is bla bla Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Deleniti, cupiditate! 500 letters max. My name is
+            bla bla Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Deleniti, cupiditate! 500 letters max. My name is bla bla Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+            cupiditate! 500 letters max.
+          </p>
+        </div>
+        <div class="profile-buttons">
+          <a (click)="toggleEditMode()" class="edit-btn">Edit</a>
+        </div>
       </div>
     </div>
-    <div class="right-side">
-      <h2>User's name:</h2>
-      <div class="bio">
-        <p>
-          My name is bla bla Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Deleniti, cupiditate! 500 letters max. My name is bla bla Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-          cupiditate! 500 letters max. My name is bla bla Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Deleniti, cupiditate! 500 letters
-          max.
-        </p>
+  </ng-container>
+  } @else {
+  <ng-container>
+    <div class="biography-container">
+      <div class="left-side">
+        <div class="profile-pic">
+          <img src="/profile-icon.jpg" alt="profile-pic" />
+        </div>
+        <div class="social-links">
+          <h2>Find me:</h2>
+          <p class="in-social">Instagram</p>
+          <p class="fb-social">Facebook</p>
+        </div>
       </div>
-      <div class="profile-buttons">
-        <a routerLink="/edit-profile" class="edit-btn">Edit</a>
-        <a routerLink="#delete-profile" class="delete-btn">Delete Profile</a>
+      <div class="right-side">
+        <h2>User's name:</h2>
+        <div class="bio">
+          <p>this is EDIT MODE</p>
+        </div>
+        <div class="profile-buttons">
+          <a (click)="toggleEditMode()" class="cancel-btn">Cancel</a>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  }
 
   <!-- Blog Posts Section -->
   <div class="blog-posts">
-    <h2>Blog Posts</h2>
+    <h2>{{ dashboardData?.username }} Posts</h2>
     <div class="articles-container">
       <div class="article">
         <h3>Article 1</h3>
@@ -55,7 +87,7 @@
       </div>
       <a routerLink="/articles" class="add-article">
         <div class="article add-new">
-          <h3>+ New Article</h3>
+          <h3>+ Create Article</h3>
         </div>
       </a>
     </div>

@@ -29,6 +29,7 @@ export const routes: Routes = [
       {
         path: ':themeId',
         component: BlogItemComponent,
+        canActivate: [AuthGuard],
       },
     ],
   },

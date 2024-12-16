@@ -12,8 +12,7 @@
     @for (blog of blogs; track $index) {
     <div class="blog-card" [routerLink]="blog._id" appMousehover>
       <h3 class="blog-title">{{ blog.themeName }}</h3>
-      <h3 class="blog-title">{{ blog.random }}</h3>
-
+      <h3 class="blog-title">Subs: {{ blog.subscribers.length }}</h3>
       <p class="blog-snippet">Click to read more...</p>
     </div>
     }
