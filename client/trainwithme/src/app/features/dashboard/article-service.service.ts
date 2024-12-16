@@ -6,10 +6,15 @@ import { Article } from '../../types/post';
 export class ArticleServiceService {
   constructor(private http: HttpClient) {}
 
-  createArticle(themeName: string, postText: string, imageUrl: string) {
-    const payload = { themeName, postText, imageUrl };
+  createArticle(
+    themeName: string,
+    postText: string,
+    imageUrl: string,
+    articleData: string
+  ) {
+    const payload = { themeName, postText, imageUrl, articleData };
     console.log(payload);
-    
+
     return this.http.post<Article>(`/api/themes`, payload);
   }
 }

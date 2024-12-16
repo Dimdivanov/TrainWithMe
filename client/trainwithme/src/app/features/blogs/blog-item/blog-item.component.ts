@@ -15,23 +15,16 @@ import { CommonModule, DatePipe } from '@angular/common';
 export class BlogItemComponent implements OnInit {
   theme: Theme | null = null;
   formatDate: string | null = null;
-  createdBy: string | null = null;
-  imageUrl: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogsService,
-    private datePipe: DatePipe
+    private blogService: BlogsService
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['themeId'];
     this.blogService.getSingleBlog(id).subscribe((theme) => {
       this.theme = theme;
-      console.log(theme);
-
-      this.formatDate = this.theme?.created_at;
-      this.imageUrl = this.imageUrl;
     });
   }
 }

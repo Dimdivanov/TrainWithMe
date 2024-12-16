@@ -25,13 +25,14 @@ export interface Post {
   updatedAt: string;
   __v: number;
 }
-
+//add here new Theme features
 export interface Theme {
   subscribers: string[];
   posts: Post[];
   _id: string;
   themeName: string;
   imageUrl: string;
+  articleData: string;
   userId: User;
   created_at: string;
   updatedAt: string;
