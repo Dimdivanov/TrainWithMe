@@ -28,7 +28,10 @@ export class BlogItemComponent implements OnInit {
     const id = this.route.snapshot.params['themeId'];
     this.blogService.getSingleBlog(id).subscribe((theme) => {
       this.theme = theme;
+      console.log(theme);
+
       this.formatDate = this.theme?.created_at;
+      this.imageUrl = this.imageUrl;
     });
   }
 }

@@ -19,7 +19,7 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
   },
-  { path: 'articles', component: ArticleCreateComponent },
+  { path: 'create-articles', component: ArticleCreateComponent },
   { path: 'about', component: AboutComponent },
   { path: 'trainer', component: TrainerComponent },
   {

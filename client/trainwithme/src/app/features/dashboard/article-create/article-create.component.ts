@@ -32,7 +32,7 @@ export class ArticleCreateComponent {
 
   postArticle() {
     const { themeName, postText, imageUrl } = this.addArticleForm.value;
-
+    
     if (this.addArticleForm.invalid) {
       return;
     }

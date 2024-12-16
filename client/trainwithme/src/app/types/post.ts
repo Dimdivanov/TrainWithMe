@@ -31,6 +31,7 @@ export interface Theme {
   posts: Post[];
   _id: string;
   themeName: string;
+  imageUrl: string;
   userId: User;
   created_at: string;
   updatedAt: string;
