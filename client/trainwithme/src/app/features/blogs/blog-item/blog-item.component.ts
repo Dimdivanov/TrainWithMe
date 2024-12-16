@@ -28,23 +28,6 @@ export class BlogItemComponent implements OnInit {
     this.blogService.getSingleBlog(id).subscribe((theme) => {
       this.theme = theme;
       this.formatDate = this.theme?.created_at;
-      
-      //the power of pipes lol 
-
-      // if (this.theme?.created_at) {
-      //   this.formatDate =
-      //     this.datePipe.transform(
-      //       this.theme.created_at,
-      //       'yyyy-MM-dd HH:mm:ss'
-      //     ) || '';
-      // }
-      // if (this.theme?.posts) {
-      //   this.theme.posts.forEach((post) => {
-      //     post.created_at =
-      //       this.datePipe.transform(post.created_at, 'yyyy-MM-dd HH:mm:ss') ||
-      //       '';
-      //   });
-      // }
     });
   }
 }

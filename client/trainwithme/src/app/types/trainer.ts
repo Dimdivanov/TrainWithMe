@@ -2,7 +2,7 @@ export interface Trainer {
   _id: string;
   themes: string[];
   posts: string[];
-  tel: string;
+  type: string;
   email: string;
   username: string;
   password: string;

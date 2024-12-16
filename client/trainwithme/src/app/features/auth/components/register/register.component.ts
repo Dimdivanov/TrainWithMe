@@ -33,7 +33,7 @@ export class RegisterComponent {
         Validators.minLength(6),
       ]),
       rePassword: new FormControl('', [Validators.required]),
-      account: new FormControl('', [Validators.required]),
+      type: new FormControl('', [Validators.required]),
     },
     { validators: passwordMatchValidator }
   );
@@ -44,12 +44,12 @@ export class RegisterComponent {
   ) {}
 
   onRegisterSubmit() {
-    const { username, email, password, rePassword, account } =
+    const { username, email, password, rePassword, type } =
       this.registerForm.value;
-
+    
     if (this.registerForm.valid) {
       this.userService
-        .register(username!, email!, password!, rePassword!, account!)
+        .register(username!, email!, password!, rePassword!, type!)
         .subscribe(() => this.router.navigate(['/dashboard']));
     } else {
       //marking every button with touched if not trigger the error

@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ArticleServiceService } from '../article-service.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-article-create',
@@ -12,20 +17,36 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './article-create.component.css',
 })
 export class ArticleCreateComponent {
-  constructor(private articleService: ArticleServiceService) {}
+  addArticleForm = new FormGroup({
+    themeName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    imageUrl: new FormControl('', [Validators.required]),
+    placement: new FormControl('', [Validators.required]),
+    articleContent: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(500),
+    ]),
+  });
+  constructor(
+    private articleService: ArticleServiceService,
+    private router: Router
+  ) {}
 
-  addArticle(
-    event: Event,
-    title: string,
-    imageUrl: string,
-    placement: string,
-    articleContent: string
-  ) {
-    event.preventDefault();
-    //creating an article when JWT injected and intercepted request
-    console.log({ title, imageUrl, placement, articleContent });
-    this.articleService
-      .createArticle(title, imageUrl, placement, articleContent)
-      .subscribe((data) => console.log(data));
+  postArticle() {
+    const { themeName, imageUrl, placement, articleContent } =
+      this.addArticleForm.value;
+    console.log(this.addArticleForm.value);
+
+    if (this.addArticleForm.invalid) {
+      return;
+    }
+
+    if (this.addArticleForm.valid) {
+      this.articleService
+        .createArticle(themeName!, imageUrl!, placement!, articleContent!)
+        .subscribe(() => this.router.navigate(['/blogs']));
+    }
   }
 }

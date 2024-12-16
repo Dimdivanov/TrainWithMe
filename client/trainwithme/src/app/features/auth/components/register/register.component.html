@@ -115,8 +115,8 @@
       </div>
       <div class="form-field account-type">
         <p>Select Account Type:</p>
-        @if(registerForm.get('account')?.invalid &&
-        registerForm.get('account')?.touched){
+        @if(registerForm.get('type')?.invalid &&
+        registerForm.get('type')?.touched){
         <div class="error-field">
           <i class="fa fa-exclamation-circle"></i> Account Type is required!
         </div>
@@ -125,18 +125,18 @@
           <label>
             <input
               type="radio"
-              name="account"
+              name="type"
               value="client"
-              formControlName="account"
+              formControlName="type"
             />
             <span class="custom-radio">Client</span>
           </label>
           <label>
             <input
               type="radio"
-              name="account"
+              name="type"
               value="trainer"
-              formControlName="account"
+              formControlName="type"
             />
             <span class="custom-radio">Trainer</span>
           </label>

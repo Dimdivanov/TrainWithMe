@@ -6,7 +6,7 @@ export interface User {
   themes: string[];
   posts: string[];
   _id: string;
-  tel: string;
+  type: string;
   email: string;
   username: string;
   password: string;
@@ -27,8 +27,6 @@ export interface Post {
 }
 
 export interface Theme {
-  random: string;
-  username: string;
   subscribers: string[];
   posts: Post[];
   _id: string;

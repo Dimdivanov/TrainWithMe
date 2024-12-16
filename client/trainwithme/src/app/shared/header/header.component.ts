@@ -10,9 +10,9 @@ import { UserServiceService } from '../../features/auth/service/user-service.ser
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  // get isLoggedIn(): boolean {
-  //   return this.userService.isLogged;
-  // }
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
   get name(): string {
     return this.userService.user?.username || '';
   }
@@ -21,7 +21,8 @@ export class HeaderComponent {
     private router: Router
   ) {}
   logout() {
-    this.userService.logout();
-    this.router.navigate(['/home']);
+    this.userService.logout().subscribe(() => {
+      this.router.navigate(['/home']);
+    });
   }
 }
