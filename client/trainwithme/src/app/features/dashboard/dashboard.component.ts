@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DashboardService } from './dashboard.service';
 import { DashboardData } from '../../types/dashboard';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 import { DatePipe } from '@angular/common';
-import { Theme, User } from '../../types/post';
+import { Theme } from '../../types/post';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   dashboardData: DashboardData | null = null;
   isEditMode: Boolean = false;
+
   private destroy$ = new Subject<void>();
 
   toggleEditMode() {
@@ -30,7 +31,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dashboardService.getUserProfile().subscribe({
-      next: () => {
+      next: (data) => {
+        this.dashboardData = data;
         this.isAuthenticating = false;
       },
       error: () => {
