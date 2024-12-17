@@ -1,36 +1,18 @@
 <section class="blog-posts">
-  <h2>From Our Blog</h2>
-  <div class="blog-container">
-    <div class="blog-post">
-      <img src="/blogpost.jpg" alt="blog-post" />
+  <h2>Latest Articles</h2>
+  <ng-container>
+    @for (theme of themes; track $index) {
+    <div class="blog-container">
+      <div class="blog-post">
+        <img [src]="theme.imageUrl" alt="blog-image" />
+      </div>
+      <div class="blog-title">
+        <h2>{{ theme.themeName }}</h2>
+        <p>
+          {{theme.articleData | truncate: 20}}
+        </p>
+      </div>
     </div>
-    <div class="blog-title">
-      <h2>Blog Title1</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolor.
-      </p>
-    </div>
-  </div>
-  <div class="blog-container">
-    <div class="blog-post">
-      <img src="/blogpost.jpg" alt="blog-post" />
-    </div>
-    <div class="blog-title">
-      <h2>Blog Title2</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolor.
-      </p>
-    </div>
-  </div>
-  <div class="blog-container">
-    <div class="blog-post">
-      <img src="/blogpost.jpg" alt="blog-post" />
-    </div>
-    <div class="blog-title">
-      <h2>Blog Title3</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolor.
-      </p>
-    </div>
-  </div>
+    }
+  </ng-container>
 </section>
