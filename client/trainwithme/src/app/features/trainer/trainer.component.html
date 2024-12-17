@@ -1,33 +1,50 @@
 <section class="search-trainer">
   <div class="banner-container">
     <h2>Search Trainers</h2>
-    <div class="search-container">
-      <input type="text" placeholder="Search here..." />
-      <button type="button">Search</button>
-    </div>
+    <form
+      class="search-container"
+      [formGroup]="searchForm"
+      (ngSubmit)="onSearch()"
+    >
+      <input
+        type="text"
+        placeholder="Search here..."
+        formControlName="searchTerm"
+      />
+      <button type="submit">Search</button>
+    </form>
     <img src="/search-banner.jpg" alt="search-banner.jpg" />
   </div>
+  @if (trainerFound){
+  <ng-container>
+    <div class="user-found">
+      <div class="user-container">
+        <div class="trainer-img">
+          <img
+            [src]="trainerFound.imageUrl || '/default-img.png'"
+            alt="trainer-img"
+          />
+        </div>
+        <h4>{{ trainerFound.username }}</h4>
+        <p>Email: {{ trainerFound.email }}</p>
+        <p>Type: {{ trainerFound.type }}</p>
+      </div>
+    </div>
+  </ng-container>
+  } @else {
+  <p>No trainers found.</p>
+  }
   <div class="trainers-container">
+    @for (trainer of trainerUsers; track $index) {
     <div class="trainer-container">
-      <img src="" alt="trainer-img" />
-      <h4>trainer 1</h4>
-      <p>name:Mitaka</p>
-      <p>type: Fitnes</p>
-      <a href="#details">Details</a>
+      <div class="trainer-img">
+        <img [src]="trainer.imageUrl || '/default-img.png'" alt="trainer-img" />
+      </div>
+      <h4>{{ trainer.username }}</h4>
+      <p>Email:{{ trainer.email }}</p>
+      <p>Type: {{ trainer.type }}</p>
+      <a [routerLink]="trainer._id">Details</a>
     </div>
-    <div class="trainer-container">
-      <img src="" alt="trainer-img" />
-      <h4>trainer 1</h4>
-      <p>name:Mitaka</p>
-      <p>type: Fitnes</p>
-      <a href="#details">Details</a>
-    </div>
-    <div class="trainer-container">
-      <img src="" alt="trainer-img" />
-      <h4>trainer 1</h4>
-      <p>name:Mitaka</p>
-      <p>type: Fitnes</p>
-      <a href="#details">Details</a>
-    </div>
+    }
   </div>
 </section>

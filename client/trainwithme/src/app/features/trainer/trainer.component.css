@@ -1,6 +1,6 @@
 .search-trainer {
   background-color: #1a1919;
-  color: #333;
+  color: white;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -67,7 +67,16 @@
   justify-content: center;
   gap: 10px; /* Space between input and button */
 }
-
+/* user found section */
+.user-found {
+  margin: 10px auto;
+}
+.user-found .user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 /* trainers list container */
 .trainers-container {
   border: 0.1px solid gray;
@@ -77,4 +86,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+/* trainer profile image */
+.trainer-img {
+  width: 120px;
+}
+.trainer-img img {
+  width: 100%;
 }

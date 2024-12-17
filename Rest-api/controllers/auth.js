@@ -89,6 +89,29 @@ function logout(req, res) {
         })
         .catch((err) => res.send(err));
 }
+//get all users testing
+function getProfilesInfo(req, res, next) {
+    userModel
+        .find({}, { password: 0, __v: 0 }) // Exclude password and __v fields
+        .then((users) => {
+            res.status(200).json(users); // Send the array of users
+        })
+        .catch(next); // Pass errors to the next middleware
+}
+//find user by name
+function getSpecificProfile(req, res, next) {
+    const { username } = req.params;
+
+    userModel
+        .findOne({ username }, { password: 0, __v: 0 })
+        .then((user) => {
+            if (!user) {
+                return res.status(404).json({ message: 'User not found!' });
+            }
+            res.status(200).json(user);
+        })
+        .catch(next);
+}
 
 function getProfileInfo(req, res, next) {
     const { _id: userId } = req.user;
@@ -123,4 +146,6 @@ module.exports = {
     logout,
     getProfileInfo,
     editProfileInfo,
+    getProfilesInfo,
+    getSpecificProfile,
 };

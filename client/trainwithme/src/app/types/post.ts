@@ -6,17 +6,24 @@ export interface User {
   themes: string[];
   posts: string[];
   _id: string;
-  type: string;
+  type?: string | null;
   email: string;
   username: string;
   password: string;
-  imageUrl: string;
-  bio: string;
+  imageUrl?: string;
+  bio?: string;
   created_at: string;
   updatedAt: string;
   __v: number;
 }
-
+export interface TrainerFound {
+  _id: string;
+  email: string;
+  username: string;
+  bio: string;
+  imageUrl: string;
+  type?: string | null;
+}
 export interface Post {
   likes: string[];
   _id: string;

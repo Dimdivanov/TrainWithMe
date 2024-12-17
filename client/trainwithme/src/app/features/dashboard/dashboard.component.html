@@ -1,6 +1,6 @@
 <section class="dashboard">
   <div class="banner-container">
-    <h2>Dashboard: {{ dashboardData?.type }}</h2>
+    <h2>Dashboard: {{ dashboardData?.type || "type" }}</h2>
     <img src="/dashboard-banner.jpg" alt="dashboard-banner.jpg" />
   </div>
   <!-- READ ONLY MODE START-->
@@ -9,7 +9,10 @@
     <div class="biography-container">
       <div class="left-side">
         <div class="profile-pic">
-          <img src="/profile-icon.jpg" alt="profile-pic" />
+          <img
+            [src]="dashboardData?.imageUrl || '/default-img.png'"
+            alt="profile-pic"
+          />
         </div>
         <div class="social-links">
           <h2>Account Info:</h2>
@@ -29,12 +32,7 @@
         <h2>{{ dashboardData?.username }}'s Bio:</h2>
         <div class="bio">
           <p>
-            My name is bla bla Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Deleniti, cupiditate! 500 letters max. My name is
-            bla bla Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Deleniti, cupiditate! 500 letters max. My name is bla bla Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-            cupiditate! 500 letters max.
+            {{ dashboardData?.bio }}
           </p>
         </div>
         <div class="profile-buttons">
