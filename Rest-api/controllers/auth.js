@@ -103,12 +103,12 @@ function getProfileInfo(req, res, next) {
 
 function editProfileInfo(req, res, next) {
     const { _id: userId } = req.user;
-    const { username, email, type } = req.body;
+    const { username, email, imageUrl, bio } = req.body;
 
     userModel
         .findOneAndUpdate(
             { _id: userId },
-            { username, email, type },
+            { username, email, imageUrl, bio },
             { runValidators: true, new: true }
         )
         .then((x) => {

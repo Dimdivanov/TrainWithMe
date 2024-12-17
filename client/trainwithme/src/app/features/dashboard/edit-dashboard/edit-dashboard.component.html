@@ -1,0 +1,49 @@
+<div class="edit-profile-container">
+  <h1>Edit Profile</h1>
+  <form class="profile-form" [formGroup]="editForm" (ngSubmit)="onEditSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter your username"
+        formControlName="username"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email address"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="profile-image">Profile Image URL</label>
+      <input
+        type="url"
+        id="imageUrl"
+        name="imageUrl"
+        placeholder="E.g., 'https://example.com/image.jpg'"
+        formControlName="imageUrl"
+      />
+    </div>
+    <div class="form-group">
+      <label for="bio">Biography</label>
+      <textarea
+        id="bio"
+        name="bio"
+        rows="6"
+        placeholder="Write a short biography..."
+        formControlName="bio"
+      ></textarea>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <button type="button" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

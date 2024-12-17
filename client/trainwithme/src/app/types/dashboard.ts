@@ -6,6 +6,8 @@ export interface DashboardData {
   email: string;
   username: string;
   password: string;
+  imageUrl: string;
+  bio: string;
   created_at: string;
   updatedAt: string;
   __v: number;

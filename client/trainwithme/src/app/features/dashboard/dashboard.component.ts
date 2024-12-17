@@ -5,11 +5,12 @@ import { DashboardData } from '../../types/dashboard';
 import { Subject } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { Theme } from '../../types/post';
+import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, EditDashboardComponent],
   providers: [DashboardService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

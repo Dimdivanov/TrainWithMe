@@ -9,8 +9,10 @@
   margin: 0 auto;
   padding: 20px;
 }
-/* img container */
-
+/* img container TO DO*/
+.img-container {
+  width: 400px;
+}
 .img-container img {
   width: 100%;
 }

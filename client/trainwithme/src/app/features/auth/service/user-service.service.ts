@@ -52,6 +52,17 @@ export class UserServiceService {
       .pipe(tap((user) => this.user$$.next(null)));
   }
 
+  //updating user profile
+  updateProfile(
+    username: string,
+    email: string,
+    imageUrl: string,
+    bio: string
+  ) {
+    const payload = { username, email, imageUrl, bio };
+    return this.http.put('/api/users/profile', payload);
+  }
+
   getProfile() {
     return this.http
       .get<UserForAuth>('/api/users/profile')

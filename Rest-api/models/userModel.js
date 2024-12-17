@@ -9,6 +9,12 @@ const userSchema = new mongoose.Schema(
         type: {
             type: String,
         },
+        imageUrl: {
+            type: String,
+        },
+        bio: {
+            type: String,
+        },
         email: {
             type: String,
             required: true,

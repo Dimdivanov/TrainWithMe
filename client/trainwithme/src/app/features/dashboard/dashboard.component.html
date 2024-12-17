@@ -45,27 +45,7 @@
   </ng-container>
   } @else {
   <ng-container>
-    <div class="biography-container">
-      <div class="left-side">
-        <div class="profile-pic">
-          <img src="/profile-icon.jpg" alt="profile-pic" />
-        </div>
-        <div class="social-links">
-          <h2>Find me:</h2>
-          <p class="in-social">Instagram</p>
-          <p class="fb-social">Facebook</p>
-        </div>
-      </div>
-      <div class="right-side">
-        <h2>User's name:</h2>
-        <div class="bio">
-          <p>this is EDIT MODE</p>
-        </div>
-        <div class="profile-buttons">
-          <a (click)="toggleEditMode()" class="cancel-btn">Cancel</a>
-        </div>
-      </div>
-    </div>
+    <app-edit-dashboard />
   </ng-container>
   }
 
