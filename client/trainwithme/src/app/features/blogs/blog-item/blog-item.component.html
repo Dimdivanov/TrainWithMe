@@ -3,7 +3,7 @@
     <div class="theme-header">
       <h1>{{ theme?.themeName }}</h1>
       <p class="theme-meta">
-        Created by <span>{{ theme?.userId }}</span> on
+        Created by <span>{{ theme?.userId?.email }}</span> on
         <span>{{ formatDate | date : "dd-MM-yyyy" }}</span>
       </p>
     </div>

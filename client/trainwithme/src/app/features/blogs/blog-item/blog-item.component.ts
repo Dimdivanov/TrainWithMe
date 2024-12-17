@@ -15,6 +15,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 export class BlogItemComponent implements OnInit {
   theme: Theme | null = null;
   formatDate: string | null = null;
+  blogCreator: string | null = null;
 
   constructor(
     private route: ActivatedRoute,

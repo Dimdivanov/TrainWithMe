@@ -13,8 +13,6 @@ export class ArticleServiceService {
     articleData: string
   ) {
     const payload = { themeName, postText, imageUrl, articleData };
-    console.log(payload);
-
     return this.http.post<Article>(`/api/themes`, payload);
   }
 }

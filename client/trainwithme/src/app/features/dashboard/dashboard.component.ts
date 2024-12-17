@@ -4,6 +4,7 @@ import { DashboardService } from './dashboard.service';
 import { DashboardData } from '../../types/dashboard';
 import { Subject, takeUntil } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { Theme, User } from '../../types/post';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,9 @@ import { DatePipe } from '@angular/common';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  isAuthenticating = true;
+  themes: Theme[] = [];
+
   dashboardData: DashboardData | null = null;
   isEditMode: Boolean = false;
   private destroy$ = new Subject<void>();
@@ -23,14 +27,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   constructor(private dashboardService: DashboardService) {}
+
   ngOnInit(): void {
-    this.dashboardService
-      .getUserProfile()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => {
-        this.dashboardData = data;
-      });
+    this.dashboardService.getUserProfile().subscribe({
+      next: () => {
+        this.isAuthenticating = false;
+      },
+      error: () => {
+        this.isAuthenticating = false;
+      },
+      complete: () => {
+        this.isAuthenticating = false;
+      },
+    });
   }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

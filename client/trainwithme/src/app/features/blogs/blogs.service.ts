@@ -12,9 +12,4 @@ export class BlogsService {
   getSingleBlog(id: string) {
     return this.http.get<Theme>(`/api/themes/${id}`);
   }
-  //todo take the user id profile
-  getBlogCreator(id: string) {
-    return this.http.get<User>(`/api/${id}`);
-  }
-  
 }

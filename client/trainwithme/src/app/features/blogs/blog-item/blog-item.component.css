@@ -9,6 +9,11 @@
   margin: 0 auto;
   padding: 20px;
 }
+/* img container */
+
+.img-container img {
+  width: 100%;
+}
 /* article content */
 .article-content {
   flex: 0 0 50%;

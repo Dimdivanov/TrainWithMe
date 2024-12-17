@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './blog-posts-section.component.css'
 })
 export class BlogPostsSectionComponent {
-
+  
 }
