@@ -43,10 +43,9 @@
   </ng-container>
   } @else {
   <ng-container>
-    <app-edit-dashboard />
+    <app-edit-dashboard (cancel)="handleCancel()" />
   </ng-container>
   }
-
   <!-- Blog Posts Section -->
   <div class="blog-posts">
     <h2>{{ dashboardData?.username }} Posts</h2>

@@ -23,7 +23,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   isEditMode: Boolean = false;
 
   private destroy$ = new Subject<void>();
-
+  
+  handleCancel() {
+    this.isEditMode = false;
+  }
   toggleEditMode() {
     this.isEditMode = !this.isEditMode;
   }

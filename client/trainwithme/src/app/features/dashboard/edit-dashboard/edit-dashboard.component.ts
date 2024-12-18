@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -17,6 +17,8 @@ import { UserServiceService } from '../../auth/service/user-service.service';
   styleUrl: './edit-dashboard.component.css',
 })
 export class EditDashboardComponent implements OnInit {
+  @Output() cancel = new EventEmitter<void>();
+
   dashboardData: DashboardData | null = null;
 
   editForm = new FormGroup({
@@ -38,6 +40,7 @@ export class EditDashboardComponent implements OnInit {
         .subscribe({
           next: (response) => {
             console.log('Profile updated successfully', response);
+            this.cancel.emit();
           },
           error: (err) => {
             console.error('Error updating profile:', err);
@@ -46,6 +49,10 @@ export class EditDashboardComponent implements OnInit {
     } else {
       console.log('Form is not valid');
     }
+  }
+
+  onCancel() {
+    this.cancel.emit();
   }
 
   ngOnInit(): void {
