@@ -12,5 +12,4 @@ export class HomeSectionService {
     let url = '/api/themes';
     return this.http.get<Theme[]>(url);
   }
-  
 }

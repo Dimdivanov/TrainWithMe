@@ -13,7 +13,7 @@ export class HeaderComponent {
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
-  get name(): string {
+  get userName(): string {
     return this.userService.user?.username || '';
   }
   constructor(
