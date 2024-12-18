@@ -45,12 +45,8 @@ export class ArticlesPostedComponent implements OnInit, OnDestroy {
     });
   }
 
-  onDelete(themeId: string) {
-    this.dashboardService.deleteUserArticle(themeId).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-    });
+  onDelete(themeId: string): void {
+    this.dashboardService.deleteUserArticle(themeId).subscribe();
   }
 
   ngOnDestroy(): void {}

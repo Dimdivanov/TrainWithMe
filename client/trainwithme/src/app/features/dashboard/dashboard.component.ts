@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   constructor(private dashboardService: DashboardService) {}
-
+  //to do add updates on changesto the profile
   ngOnInit(): void {
     this.dashboardService.getUserProfile().subscribe({
       next: (data) => {
