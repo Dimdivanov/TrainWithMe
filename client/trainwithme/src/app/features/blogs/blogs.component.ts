@@ -30,7 +30,6 @@ export class BlogsComponent implements OnInit, OnDestroy {
   fetchItems(): void {
     const blogsSubscription = this.blogsService.getAll().subscribe((data) => {
       this.blogs = data;
-      console.log(this.blogs);
     });
     this.subscription.add(blogsSubscription);
   }

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Article } from '../../../../types/post';
 
 @Injectable({
   providedIn: 'root',

@@ -17,4 +17,8 @@ export class BlogsService {
     let url = '/api/themes';
     return this.http.get<Theme[]>(url);
   }
+  //delete comment if owner
+  deleteComment(themeId: string, postId: string) {
+    return this.http.delete<void>(`/api/themes/${themeId}/posts/${postId}`, {});
+  }
 }

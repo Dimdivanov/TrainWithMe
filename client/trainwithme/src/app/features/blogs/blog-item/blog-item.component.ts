@@ -19,13 +19,13 @@ export class BlogItemComponent implements OnInit {
   blogCreator: string | null = null;
 
   latestThemes: Theme[] = [];
+  currentUserId: string = '6762e4c01b81774ea49c12b4';
 
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogsService
   ) {}
 
-  //to do
   ngOnInit(): void {
     const id = this.route.snapshot.params['themeId'];
 
@@ -38,4 +38,14 @@ export class BlogItemComponent implements OnInit {
       this.latestThemes = themes.slice(-3);
     });
   }
+
+  isOwner(userId: string): boolean {
+    return this.currentUserId === userId;
+  }
+
+  deleteComment(postId: string): void {
+    const themeId = this.route.snapshot.params['themeId'];
+    this.blogService.deleteComment(themeId, postId).subscribe()
+  }
+  editComment(postId: string, currentText: string): void {}
 }
