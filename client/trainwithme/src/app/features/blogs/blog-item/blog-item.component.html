@@ -3,7 +3,8 @@
     <div class="theme-header">
       <h1>{{ theme?.themeName }}</h1>
       <p class="theme-meta">
-        Created by <span>{{ theme?.userId?.email }}</span> on
+        Created by {{ theme?.username
+        }}<span>{{ theme?.userId?.email }}</span> on
         <span>{{ formatDate | date : "dd-MM-yyyy" }}</span>
       </p>
     </div>
@@ -44,20 +45,14 @@
         }
       </ul>
     </div>
-    <div class="add-comment-section">
-      <h3>Add a Comment</h3>
-      <form>
-        <textarea placeholder="Write your comment here..." rows="4"></textarea>
-        <button type="submit">Post Comment</button>
-      </form>
-    </div>
+    <app-blog-comment />
   </article>
   <aside class="latest-content">
     <div class="latest-article">
       <h4>Latest Articles:</h4>
       <div class="article-list">
         @for (theme of latestThemes; track $index) {
-          <p>{{theme?.themeName}}</p>
+        <p>{{ theme?.themeName }}</p>
         }
       </div>
     </div>

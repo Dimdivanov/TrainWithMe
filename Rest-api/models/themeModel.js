@@ -19,6 +19,9 @@ const themeSchema = new mongoose.Schema(
                 ref: 'User',
             },
         ],
+        username: {
+            type: String,
+        },
         userId: {
             type: ObjectId,
             ref: 'User',

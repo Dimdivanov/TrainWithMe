@@ -1,0 +1,11 @@
+<div class="add-comment-section">
+  <h3>Add a Comment</h3>
+  <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()">
+    <textarea
+      placeholder="Write your comment here..."
+      rows="4"
+      formControlName="text"
+    ></textarea>
+    <button type="submit">Post Comment</button>
+  </form>
+</div>

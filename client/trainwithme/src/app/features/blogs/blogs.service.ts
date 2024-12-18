@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Theme, User } from '../../types/post';
+import { Theme } from '../../types/post';
 
 @Injectable()
 export class BlogsService {

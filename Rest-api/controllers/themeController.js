@@ -26,12 +26,29 @@ function getTheme(req, res, next) {
 function createTheme(req, res, next) {
     const { themeName, imageUrl, articleData } = req.body;
     const { _id: userId } = req.user;
+
     console.log('FROM SERVER', themeName, imageUrl, articleData);
 
-    themeModel
-        .create({ themeName, userId, subscribers: [userId], imageUrl, articleData })
-        .then((theme) => {
-            res.status(200).json(theme);
+    userModel
+        .findById(userId)
+        .then((user) => {
+            if (!user) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+
+            themeModel
+                .create({
+                    themeName,
+                    username: user.username,
+                    userId,
+                    subscribers: [userId],
+                    imageUrl,
+                    articleData,
+                })
+                .then((theme) => {
+                    res.status(200).json(theme);
+                })
+                .catch(next);
         })
         .catch(next);
 }

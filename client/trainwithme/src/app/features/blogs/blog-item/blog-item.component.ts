@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from '../blogs.service';
 import { Theme } from '../../../types/post';
 import { CommonModule, DatePipe } from '@angular/common';
+import { BlogCommentComponent } from './blog-comment/blog-comment.component';
 
 @Component({
   selector: 'app-blog-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [BlogCommentComponent, CommonModule],
   providers: [BlogsService, DatePipe],
   templateUrl: './blog-item.component.html',
   styleUrl: './blog-item.component.css',
@@ -24,15 +25,13 @@ export class BlogItemComponent implements OnInit {
     private blogService: BlogsService
   ) {}
 
-  // find the user created the article
-  
   //to do
   ngOnInit(): void {
     const id = this.route.snapshot.params['themeId'];
+
     this.blogService.getSingleBlog(id).subscribe((theme) => {
       this.theme = theme;
       this.formatDate = theme.created_at;
-      console.log(this.theme);
     });
 
     this.blogService.getThemes().subscribe((themes) => {

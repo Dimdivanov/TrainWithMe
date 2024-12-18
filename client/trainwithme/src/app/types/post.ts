@@ -24,11 +24,13 @@ export interface TrainerFound {
   imageUrl: string;
   type?: string | null;
 }
+
 export interface Post {
   likes: string[];
   _id: string;
   text: string;
   userId: User;
+  username: string;
   themeId: Theme;
   created_at: string;
   updatedAt: string;
@@ -43,6 +45,7 @@ export interface Theme {
   imageUrl: string;
   articleData: string;
   userId: User;
+  username: string;
   created_at: string;
   updatedAt: string;
   __v: number;

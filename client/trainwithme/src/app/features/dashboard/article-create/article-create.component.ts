@@ -34,7 +34,6 @@ export class ArticleCreateComponent {
   postArticle() {
     const { themeName, postText, imageUrl, articleData } =
       this.addArticleForm.value;
-    console.log(themeName, imageUrl, articleData);
 
     if (this.addArticleForm.invalid) {
       return;
