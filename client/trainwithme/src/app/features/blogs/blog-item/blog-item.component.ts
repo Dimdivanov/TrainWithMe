@@ -15,11 +15,10 @@ import { BlogCommentComponent } from './blog-comment/blog-comment.component';
 })
 export class BlogItemComponent implements OnInit {
   theme: Theme | null = null;
+  latestThemes: Theme[] = [];
+
   formatDate: string | null = null;
   blogCreator: string | null = null;
-
-  latestThemes: Theme[] = [];
-  currentUserId: string = '6762e4c01b81774ea49c12b4';
 
   constructor(
     private route: ActivatedRoute,
@@ -38,14 +37,19 @@ export class BlogItemComponent implements OnInit {
       this.latestThemes = themes.slice(-3);
     });
   }
-
-  isOwner(userId: string): boolean {
-    return this.currentUserId === userId;
+  
+  // Refresh blog data when a new comment is added or an existing one is deleted
+  refreshBlogData(): void {
+    const id = this.route.snapshot.params['themeId'];
+    this.blogService.getSingleBlog(id).subscribe((theme) => {
+      this.theme = theme;
+      this.formatDate = theme.created_at;
+    });
   }
 
   deleteComment(postId: string): void {
     const themeId = this.route.snapshot.params['themeId'];
-    this.blogService.deleteComment(themeId, postId).subscribe()
+    this.blogService.deleteComment(themeId, postId).subscribe();
   }
   editComment(postId: string, currentText: string): void {}
 }

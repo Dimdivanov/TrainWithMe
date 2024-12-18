@@ -30,10 +30,8 @@
         @for (post of theme?.posts; track $index) {
         <li class="post-item">
           <div class="post-header">
-            <a href="#">
-              <strong>{{ post.userId.username }}</strong> created at
-              <time>{{ post.created_at | date : "full" }}</time>
-            </a>
+            <strong>{{ post.userId.username }}</strong> created at
+            <time>{{ post.created_at | date : "full" }}</time>
           </div>
           <div class="post-content">
             <p>{{ post.text }}</p>
@@ -42,14 +40,18 @@
             <p><span>❤️</span> {{ post.likes.length }} Likes</p>
           </div>
           <div class="btn-container">
-            <button class="edit-btn" (click)="editComment(post._id, post.text)" >Edit</button>
-            <button class="delete" (click)="deleteComment(post._id)" >Delete</button>
+            <button class="edit-btn" (click)="editComment(post._id, post.text)">
+              Edit
+            </button>
+            <button class="delete" (click)="deleteComment(post._id)">
+              Delete
+            </button>
           </div>
         </li>
         }
       </ul>
     </div>
-    <app-blog-comment />
+    <app-blog-comment (commentAdded)="refreshBlogData()"/>
   </article>
   <aside class="latest-content">
     <div class="latest-article">

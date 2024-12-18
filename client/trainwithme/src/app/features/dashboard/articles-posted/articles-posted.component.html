@@ -5,7 +5,7 @@
     @for (article of userArticles; track $index) {
     <div class="article">
       <h3>{{ article.themeName }}</h3>
-      <button class="edit-btn">Edit</button>
+      <button class="edit-btn" routerLink="/edit-article">Edit</button>
       <button class="delete-btn" (click)="onDelete(article._id)">Delete</button>
     </div>
     }

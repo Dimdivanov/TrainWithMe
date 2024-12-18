@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -17,6 +17,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './blog-comment.component.css',
 })
 export class BlogCommentComponent {
+  @Output() commentAdded = new EventEmitter<void>();
+
   commentForm = new FormGroup({
     text: new FormControl('', [
       Validators.required,
@@ -41,6 +43,7 @@ export class BlogCommentComponent {
       next: (data) => {
         console.log('Comment posted: ', data);
         this.commentForm.reset();
+        this.commentAdded.emit();
       },
       error: (err) => {
         console.error('Error posting comment:', err);

@@ -8,6 +8,7 @@ import { BlogsComponent } from './features/blogs/blogs.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { ArticleCreateComponent } from './features/dashboard/article-create/article-create.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ArticleEditComponent } from './features/dashboard/article-edit/article-edit.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'create-articles', component: ArticleCreateComponent },
+  { path: 'edit-article', component: ArticleEditComponent },
   { path: 'about', component: AboutComponent },
   {
     path: 'trainer',
@@ -35,7 +37,10 @@ export const routes: Routes = [
       { path: '', component: BlogsComponent },
       {
         path: ':themeId',
-        loadComponent: () => import('./features/blogs/blog-item/blog-item.component').then((c) => c.BlogItemComponent),
+        loadComponent: () =>
+          import('./features/blogs/blog-item/blog-item.component').then(
+            (c) => c.BlogItemComponent
+          ),
         canActivate: [AuthGuard],
       },
     ],
