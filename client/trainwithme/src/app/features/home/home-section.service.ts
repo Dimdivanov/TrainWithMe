@@ -8,11 +8,8 @@ import { Theme } from '../../types/post';
 export class HomeSectionService {
   constructor(private http: HttpClient) {}
 
-  getPosts(limit?: number) {
+  getPosts() {
     let url = '/api/themes';
-    if (limit) {
-      url += `?limit=${limit}`;
-    }
     return this.http.get<Theme[]>(url);
   }
   

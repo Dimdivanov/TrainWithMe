@@ -26,10 +26,11 @@ export class BlogsComponent implements OnInit, OnDestroy {
     //testing loader - remove the timeout to stop the example
     this.isLoading = false;
   }
-
+  //to do
   fetchItems(): void {
     const blogsSubscription = this.blogsService.getAll().subscribe((data) => {
       this.blogs = data;
+      console.log(this.blogs);
     });
     this.subscription.add(blogsSubscription);
   }

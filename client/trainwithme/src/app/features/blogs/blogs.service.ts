@@ -12,4 +12,9 @@ export class BlogsService {
   getSingleBlog(id: string) {
     return this.http.get<Theme>(`/api/themes/${id}`);
   }
+  // fetch themes for blog page
+  getThemes() {
+    let url = '/api/themes';
+    return this.http.get<Theme[]>(url);
+  }
 }

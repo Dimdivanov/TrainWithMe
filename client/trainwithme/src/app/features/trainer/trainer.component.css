@@ -95,3 +95,9 @@
 .trainer-img img {
   width: 100%;
 }
+/* not found message */
+.not-found {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 600;
+}

@@ -17,15 +17,26 @@ export class BlogItemComponent implements OnInit {
   formatDate: string | null = null;
   blogCreator: string | null = null;
 
+  latestThemes: Theme[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogsService
   ) {}
 
+  // find the user created the article
+  
+  //to do
   ngOnInit(): void {
     const id = this.route.snapshot.params['themeId'];
     this.blogService.getSingleBlog(id).subscribe((theme) => {
       this.theme = theme;
+      this.formatDate = theme.created_at;
+      console.log(this.theme);
+    });
+
+    this.blogService.getThemes().subscribe((themes) => {
+      this.latestThemes = themes.slice(-3);
     });
   }
 }

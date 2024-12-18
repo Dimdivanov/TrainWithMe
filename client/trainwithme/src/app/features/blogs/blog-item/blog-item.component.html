@@ -20,6 +20,11 @@
 
     <div class="theme-posts">
       <h2>Comments</h2>
+      <div class="no-comments">
+        @if (theme?.posts?.length === 0) {
+        <p>No comments yet.</p>
+        }
+      </div>
       <ul>
         @for (post of theme?.posts; track $index) {
         <li class="post-item">
@@ -39,14 +44,21 @@
         }
       </ul>
     </div>
+    <div class="add-comment-section">
+      <h3>Add a Comment</h3>
+      <form>
+        <textarea placeholder="Write your comment here..." rows="4"></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </div>
   </article>
   <aside class="latest-content">
     <div class="latest-article">
       <h4>Latest Articles:</h4>
       <div class="article-list">
-        <p>Article 1 link</p>
-        <p>Article 2 link</p>
-        <p>Article 3 link</p>
+        @for (theme of latestThemes; track $index) {
+          <p>{{theme?.themeName}}</p>
+        }
       </div>
     </div>
   </aside>

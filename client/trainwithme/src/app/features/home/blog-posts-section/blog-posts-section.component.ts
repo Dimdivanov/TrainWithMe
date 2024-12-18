@@ -18,7 +18,7 @@ export class BlogPostsSectionComponent implements OnInit {
   constructor(private homeService: HomeSectionService) {}
 
   ngOnInit(): void {
-    this.homeService.getPosts(3).subscribe((themes) => {
+    this.homeService.getPosts().subscribe((themes) => {
       this.themes = themes.slice(-3);
     });
   }
