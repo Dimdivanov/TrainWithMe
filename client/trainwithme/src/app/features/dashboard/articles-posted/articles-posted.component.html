@@ -2,11 +2,12 @@
 <div class="blog-posts">
   <h2>{{ dashboardData?.username }}'s Articles</h2>
   <div class="articles-container">
+    @for (article of userArticles; track $index) {
     <div class="article">
-      <h3>Article 1</h3>
-      <a href="#">Edit / Delete</a>
+      <h3>{{article.themeName}}</h3>
+      <a>Edit / Delete</a>
     </div>
-
+  }
     <a routerLink="/create-articles" class="add-article">
       <div class="article add-new">
         <h3>+ Create Article</h3>

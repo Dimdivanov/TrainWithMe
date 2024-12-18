@@ -14,7 +14,7 @@ import { DashboardService } from '../dashboard.service';
 export class ArticlesPostedComponent implements OnInit, OnDestroy {
   isAuthenticating = true;
   dashboardData: DashboardData | null = null;
-  userArticles: DashboardArticles | null = null;
+  userArticles: DashboardArticles[] = [];
 
   constructor(private dashboardService: DashboardService) {}
 
@@ -26,8 +26,10 @@ export class ArticlesPostedComponent implements OnInit, OnDestroy {
         if (this.dashboardData) {
           const userId = this.dashboardData._id;
           this.dashboardService.getUserArticles(userId).subscribe({
-            next: (data) => {
-              console.log(data);
+            next: (articles) => {
+              this.userArticles = articles;
+              console.log(this.userArticles);
+              
             },
             error: (err) => {
               console.error('Error fetching articles:', err);
