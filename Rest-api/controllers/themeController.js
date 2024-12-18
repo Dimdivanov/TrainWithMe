@@ -1,5 +1,4 @@
 const { themeModel } = require('../models');
-const { newPost } = require('./postController');
 
 function getThemes(req, res, next) {
     themeModel
@@ -37,6 +36,34 @@ function createTheme(req, res, next) {
         .catch(next);
 }
 
+//added delete theme
+function deleteTheme(req, res, next) {
+    const { themeId } = req.params;
+    themeModel
+        .findByIdAndDelete(themeId)
+        .then((deletedTheme) => {
+            if (!deletedTheme) {
+                return res.status(404).json({ message: 'Theme not found' });
+            }
+            res.status(200).json({ message: 'Theme deleted successfully', deletedTheme });
+        })
+        .catch(next);
+}
+// find user articles
+function getUserArticles(req, res, next) {
+    const { userId } = req.params;  
+
+    themeModel
+        .find({ userId })  
+        .then((themes) => {
+            if (!themes || themes.length === 0) {
+                return res.status(404).json({ message: 'No themes found for this user' });
+            }
+            res.status(200).json(themes);  
+        })
+        .catch(next);  
+}
+
 function subscribe(req, res, next) {
     const themeId = req.params.themeId;
     const { _id: userId } = req.user;
@@ -57,4 +84,6 @@ module.exports = {
     createTheme,
     getTheme,
     subscribe,
+    deleteTheme,
+    getUserArticles
 };

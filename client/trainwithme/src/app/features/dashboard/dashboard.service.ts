@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
-import { DashboardData } from '../../types/dashboard';
+import { DashboardArticles, DashboardData } from '../../types/dashboard';
 
 @Injectable()
 export class DashboardService {
@@ -15,5 +15,9 @@ export class DashboardService {
     return this.http
       .get<DashboardData>('/api/users/profile')
       .pipe(tap((user) => this.user$$.next(user)));
+  }
+  
+  getUserArticles(userId: string){
+    return this.http.get<DashboardArticles[]>(`/api/themes/user/${userId}/articles`);
   }
 }

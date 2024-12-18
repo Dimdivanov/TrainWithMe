@@ -46,29 +46,7 @@
     <app-edit-dashboard (cancel)="handleCancel()" />
   </ng-container>
   }
-  <!-- Blog Posts Section -->
-  <div class="blog-posts">
-    <h2>{{ dashboardData?.username }} Posts</h2>
-    <div class="articles-container">
-      <div class="article">
-        <h3>Article 1</h3>
-        <a href="#">Edit / Delete</a>
-      </div>
-      <div class="article">
-        <h3>Article 2</h3>
-        <a href="#">Edit / Delete</a>
-      </div>
-      <div class="article">
-        <h3>Article 3</h3>
-        <a href="#">Edit / Delete</a>
-      </div>
-      <a routerLink="/create-articles" class="add-article">
-        <div class="article add-new">
-          <h3>+ Create Article</h3>
-        </div>
-      </a>
-    </div>
-  </div>
+  <app-articles-posted />
   <!-- Signed-Up Clients Section -->
   <div class="signed-clients">
     <h2>Signed Clients</h2>

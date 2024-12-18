@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { DashboardService } from './dashboard.service';
 import { DashboardData } from '../../types/dashboard';
 import { Subject } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { Theme } from '../../types/post';
 import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.component';
+import { ArticlesPostedComponent } from './articles-posted/articles-posted.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink, DatePipe, EditDashboardComponent],
+  imports: [DatePipe, EditDashboardComponent, ArticlesPostedComponent],
   providers: [DashboardService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   isEditMode: Boolean = false;
 
   private destroy$ = new Subject<void>();
-  
+
   handleCancel() {
     this.isEditMode = false;
   }
