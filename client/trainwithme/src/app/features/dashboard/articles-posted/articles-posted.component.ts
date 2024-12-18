@@ -29,7 +29,6 @@ export class ArticlesPostedComponent implements OnInit, OnDestroy {
             next: (articles) => {
               this.userArticles = articles;
               console.log(this.userArticles);
-              
             },
             error: (err) => {
               console.error('Error fetching articles:', err);
@@ -42,6 +41,14 @@ export class ArticlesPostedComponent implements OnInit, OnDestroy {
       },
       complete: () => {
         this.isAuthenticating = false;
+      },
+    });
+  }
+
+  onDelete(themeId: string) {
+    this.dashboardService.deleteUserArticle(themeId).subscribe({
+      next: (data) => {
+        console.log(data);
       },
     });
   }

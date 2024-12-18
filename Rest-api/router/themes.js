@@ -14,7 +14,7 @@ router.put('/:themeId', auth(), themeController.subscribe);
 //get all user articles router added
 router.get('/user/:userId/articles', auth(), themeController.getUserArticles);
 //delete theme router added
-router.delete('/:themeId', auth(), themeController.deleteTheme);
+router.delete('/:themeId/delete', auth(), themeController.deleteTheme);
 
 router.put('/:themeId/posts/:postId', auth(), postController.editPost);
 router.delete('/:themeId/posts/:postId', auth(), postController.deletePost);

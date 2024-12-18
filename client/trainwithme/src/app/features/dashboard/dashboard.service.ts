@@ -16,8 +16,16 @@ export class DashboardService {
       .get<DashboardData>('/api/users/profile')
       .pipe(tap((user) => this.user$$.next(user)));
   }
-  
-  getUserArticles(userId: string){
-    return this.http.get<DashboardArticles[]>(`/api/themes/user/${userId}/articles`);
+
+  getUserArticles(userId: string) {
+    return this.http.get<DashboardArticles[]>(
+      `/api/themes/user/${userId}/articles`
+    );
+  }
+
+  deleteUserArticle(themeId: string) {
+    return this.http
+      .delete(`/api/themes/${themeId}/delete`)
+      .pipe(tap(() => console.log('article deleted')));
   }
 }

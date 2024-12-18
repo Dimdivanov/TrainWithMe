@@ -42,3 +42,28 @@
   height: 100%; /* Ensure height matches other articles */
   justify-content: center;
 }
+
+/* Style for Edit and Delete buttons */
+.edit-btn, .delete-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
