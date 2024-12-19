@@ -24,13 +24,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  handleCancel() {
-    this.isEditMode = false;
-  }
-  toggleEditMode() {
-    this.isEditMode = !this.isEditMode;
-  }
-
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
@@ -46,6 +39,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.isAuthenticating = false;
       },
     });
+  }
+
+  handleCancel() {
+    this.isEditMode = false;
+  }
+  toggleEditMode() {
+    this.isEditMode = !this.isEditMode;
+    //
   }
 
   ngOnDestroy(): void {

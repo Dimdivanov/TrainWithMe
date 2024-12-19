@@ -8,6 +8,7 @@ import {
 import { DashboardData } from '../../../types/dashboard';
 import { DashboardService } from '../dashboard.service';
 import { UserServiceService } from '../../auth/service/user-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-dashboard',
@@ -22,36 +23,55 @@ export class EditDashboardComponent implements OnInit {
   dashboardData: DashboardData | null = null;
 
   editForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+    ]),
     imageUrl: new FormControl('', [Validators.required]),
-    bio: new FormControl('', [Validators.required]),
+    bio: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
+
   constructor(
     private dashboardDetails: DashboardService,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private toastr: ToastrService
   ) {}
 
   onEditSubmit() {
-    if (this.editForm.valid) {
-      const { username, email, imageUrl, bio } = this.editForm.value;
-      this.userService
-        .updateProfile(username!, email!, imageUrl!, bio!)
-        .subscribe({
-          next: (response) => {
-            console.log('Profile updated successfully', response);
-            this.cancel.emit();
-          },
-          error: (err) => {
-            console.error('Error updating profile:', err);
-          },
-        });
-    } else {
-      console.log('Form is not valid');
+    if (this.editForm.invalid) {
+      this.toastr.error('Please fill out all fields correctly.', 'Form Error', {
+        positionClass: 'toast-top-right',
+      });
+      return;
     }
+    const { username, email, imageUrl, bio } = this.editForm.value;
+    this.userService
+      .updateProfile(username!, email!, imageUrl!, bio!)
+      .subscribe({
+        next: () => {
+          this.toastr.success('Edit successful', 'Success', {
+            positionClass: 'toast-top-right',
+          });
+
+          this.cancel.emit();
+        },
+        error: (error) => {
+          this.toastr.error(
+            error.message || 'Something went wrong',
+            'Edit Failed',
+            {
+              positionClass: 'toast-top-right',
+            }
+          );
+        },
+      });
   }
 
-  onCancel() {
+  onCancel(): void{
     this.cancel.emit();
   }
 
@@ -60,8 +80,6 @@ export class EditDashboardComponent implements OnInit {
       next: (data) => {
         this.dashboardData = data;
 
-        //populating the data from the API
-        // Populate the form with the data from the API
         if (this.dashboardData) {
           this.editForm.patchValue({
             username: this.dashboardData.username,

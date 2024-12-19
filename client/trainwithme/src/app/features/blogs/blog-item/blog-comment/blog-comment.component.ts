@@ -22,7 +22,7 @@ export class BlogCommentComponent {
   commentForm = new FormGroup({
     text: new FormControl('', [
       Validators.required,
-      Validators.minLength(10),
+      Validators.minLength(5),
       Validators.maxLength(200),
     ]),
   });

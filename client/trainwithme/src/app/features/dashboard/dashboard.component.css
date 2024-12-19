@@ -36,9 +36,9 @@
   padding: 30px 50px;
   width: 60%;
   border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(170, 91, 59, 0.2) 0px 7px 29px 0px;
   display: flex;
-  gap: 40px;
+  gap: 50px;
 }
 .biography-container .left-side {
   display: flex;
@@ -51,11 +51,12 @@
 .biography-container .right-side {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 10px;
 }
 .right-side .bio {
   padding: 20px 20px;
-  width: 100%;
+  flex: 1;
   max-width: 800px;
   background-color: #f9f9f9;
   border-left: 5px solid orangered; /* Adds a subtle accent */
@@ -116,7 +117,6 @@
   color: #ff6666;
   border: 2px solid #ff6666;
 }
-
 
 /* Signed-Up Clients Section */
 .signed-clients {

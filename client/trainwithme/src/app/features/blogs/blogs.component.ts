@@ -23,10 +23,9 @@ export class BlogsComponent implements OnInit, OnDestroy {
   constructor(private blogsService: BlogsService) {}
   ngOnInit(): void {
     this.fetchItems();
-    //testing loader - remove the timeout to stop the example
     this.isLoading = false;
   }
-  //to do
+ 
   fetchItems(): void {
     const blogsSubscription = this.blogsService.getAll().subscribe((data) => {
       this.blogs = data;
