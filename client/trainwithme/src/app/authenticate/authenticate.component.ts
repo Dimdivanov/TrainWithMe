@@ -17,7 +17,6 @@ export class AuthenticateComponent implements OnInit {
     this.userService.getProfile().subscribe({
       next: () => {
         this.isAuthenticating = false;
-        this.router.navigate(['/dashboard']); 
       },
       error: () => {
         this.isAuthenticating = false;

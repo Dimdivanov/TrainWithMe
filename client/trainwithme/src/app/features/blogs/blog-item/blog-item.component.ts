@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from '../blogs.service';
 import { Theme } from '../../../types/post';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, TitleCasePipe } from '@angular/common';
 import { BlogCommentComponent } from './blog-comment/blog-comment.component';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-blog-item',
   standalone: true,
-  imports: [BlogCommentComponent, CommonModule],
+  imports: [BlogCommentComponent, CommonModule, TitleCasePipe, DatePipe],
   providers: [BlogsService, DatePipe],
   templateUrl: './blog-item.component.html',
   styleUrl: './blog-item.component.css',
@@ -66,10 +66,16 @@ export class BlogItemComponent implements OnInit {
       this.refreshBlogData();
     });
   }
-  editComment(postId: string, currentText: string): void {}
-  // On component destroy, emit value to complete the observables
+
+  editComment(postId: string, currentText: string): void {
+    const themeId = this.route.snapshot.params['themeId'];
+    this.blogService.editComment(postId, currentText).subscribe(() => {
+      this.refreshBlogData();
+    });
+  }
+
   ngOnDestroy(): void {
-    this.unsubscribe$.next(); // Emit value to unsubscribe
-    this.unsubscribe$.complete(); // Complete the subject
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

@@ -63,7 +63,7 @@ export class RegisterComponent {
       .subscribe({
         next: () => {
           this.toastr.showSuccess('Registration successful!', 'Success');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/dashboard']);
         },
         error: (error) => {
           this.toastr.showError(

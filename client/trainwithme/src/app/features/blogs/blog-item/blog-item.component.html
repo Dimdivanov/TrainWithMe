@@ -8,8 +8,10 @@
         <span>{{ formatDate | date : "dd-MM-yyyy" }}</span>
       </p>
     </div>
-    <div class="img-container">
-      <img [src]="theme?.imageUrl" alt="img-here" />
+    <div class="image-content">
+      <div class="img-container">
+        <img [src]="theme?.imageUrl" alt="img-here" />
+      </div>
     </div>
     <div class="theme-info">
       <p>
@@ -36,9 +38,6 @@
           <div class="post-content">
             <p>{{ post.text }}</p>
           </div>
-          <div class="post-likes">
-            <p><span>❤️</span> {{ post.likes.length }} Likes</p>
-          </div>
           <div class="btn-container">
             <button class="edit-btn" (click)="editComment(post._id, post.text)">
               Edit
@@ -51,14 +50,15 @@
         }
       </ul>
     </div>
-    <app-blog-comment (commentAdded)="refreshBlogData()"/>
+    <app-blog-comment (commentAdded)="refreshBlogData()" />
   </article>
   <aside class="latest-content">
     <div class="latest-article">
       <h4>Latest Articles:</h4>
       <div class="article-list">
         @for (theme of latestThemes; track $index) {
-        <p>{{ theme?.themeName }}</p>
+        <p class="article-item">{{ theme?.themeName | titlecase }}</p>
+        <p>{{ theme?.created_at | date }}</p>
         }
       </div>
     </div>

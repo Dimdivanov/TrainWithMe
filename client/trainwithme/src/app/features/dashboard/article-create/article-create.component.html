@@ -1,52 +1,58 @@
-<div class="create-article-container">
-  <h1>Create an Article</h1>
-  <form
-    [formGroup]="addArticleForm"
-    (ngSubmit)="postArticle()"
-    class="article-form"
-  >
-    <div class="form-group">
-      <label for="article-title">Article Title</label>
-      <input
-        type="text"
-        id="article-title"
-        name="themeName"
-        placeholder="E.g., 'Top 10 Exercises for Core Strength'"
-        formControlName="themeName"
-      />
-    </div>
-    <div class="form-group">
-      <label for="image-url">Image URL</label>
-      <input
-        type="url"
-        id="image-url"
-        name="imageUrl"
-        formControlName="imageUrl"
-        placeholder="E.g., 'https://example.com/image.jpg'"
-      />
-    </div>
-    <div class="form-group">
-      <label for="article-placement">Placement</label>
-      <select id="article-placement">
-        <option value="" disabled>Select where this article will appear</option>
-        <option value="blog">Blog</option>
-        <option value="home-page">Homepage</option>
-        <option value="newsletter">Newsletter</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="articleData">Write Your Article</label>
-      <textarea
-        name="articleData"
-        id="article-content"
-        rows="8"
-        placeholder="Start writing your article here..."
-        formControlName="articleData"
-      ></textarea>
-    </div>
-    <div class="form-actions">
-      <button type="submit" class="btn btn-primary">Post Article</button>
-      <button routerLink="/dashboard" class="btn btn-secondary">Cancel</button>
-    </div>
-  </form>
-</div>
+<section class="article-section">
+  <div class="create-article-container">
+    <h1>Create an Article</h1>
+    <form
+      [formGroup]="addArticleForm"
+      (ngSubmit)="postArticle()"
+      class="article-form"
+    >
+      <div class="form-group">
+        <label for="article-title">Article Title</label>
+        <input
+          type="text"
+          id="article-title"
+          name="themeName"
+          placeholder="E.g., 'Top 10 Exercises for Core Strength'"
+          formControlName="themeName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image-url">Image URL</label>
+        <input
+          type="url"
+          id="image-url"
+          name="imageUrl"
+          formControlName="imageUrl"
+          placeholder="E.g., 'https://example.com/image.jpg'"
+        />
+      </div>
+      <div class="form-group">
+        <label for="article-placement">Placement</label>
+        <select id="article-placement">
+          <option value="" disabled>
+            Select where this article will appear
+          </option>
+          <option value="blog">Blog</option>
+          <option value="home-page">Homepage</option>
+          <option value="newsletter">Newsletter</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="articleData">Write Your Article</label>
+        <textarea
+          name="articleData"
+          id="article-content"
+          rows="8"
+          placeholder="Start writing your article here..."
+          formControlName="articleData"
+        ></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Post Article</button>
+        <button routerLink="/dashboard" class="btn btn-secondary">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

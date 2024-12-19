@@ -21,4 +21,12 @@ export class BlogsService {
   deleteComment(themeId: string, postId: string) {
     return this.http.delete<void>(`/api/themes/${themeId}/posts/${postId}`, {});
   }
+  //edit comment if owner
+  editComment(themeId: string, postId: string) {
+    const payload = { themeId, postId };
+    return this.http.put<void>(
+      `/api/themes/${themeId}/posts/${postId}`,
+      payload
+    );
+  }
 }
