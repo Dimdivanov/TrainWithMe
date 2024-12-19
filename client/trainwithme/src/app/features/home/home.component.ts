@@ -4,6 +4,7 @@ import { BlogPostsSectionComponent } from './blog-posts-section/blog-posts-secti
 import { WelcomeMsgComponent } from '../../shared/welcome-msg/welcome-msg.component';
 import { HomeSectionService } from './home-section.service';
 import { Theme } from '../../types/post';
+import { StartNowComponent } from '../../shared/start-now/start-now.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { Theme } from '../../types/post';
     HeroSectionComponent,
     WelcomeMsgComponent,
     BlogPostsSectionComponent,
+    StartNowComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

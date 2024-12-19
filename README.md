@@ -1,12 +1,12 @@
 # TrainWithMe
 
-**TrainWithMe** is an online coaching platform designed to connect clients with personal trainers from diverse sports backgrounds. The app provides an interactive space for trainers to showcase their expertise, share blog posts, and communicate directly with their community and clients. Clients can browse trainer profiles, read success stories, and select a trainer to help achieve their dream physique.
+**TrainWithMe** is an online coaching platform designed to connect clients with personal trainers from diverse sports backgrounds. The app provides an interactive space for trainers to showcase their expertise, share articles, blog posts, and communicate directly with their community and clients. Clients can browse trainer profiles, read success stories, and select a trainer to help achieve their dream physique.
 
 ---
 
 ## 🚀 Features
 
--   **Trainer Profiles**: Browse detailed profiles of trainers, including their background, expertise, and biography. Search clients option.
+-   **Trainer Profiles**: Browse detailed profiles of trainers, including their background, expertise, and biography. Post Articles and Comments.
 -   **Blog Posts**: Trainers can create and manage blog posts to share tips, insights, and updates with their followers.
 -   **Success Stories**: Highlight trainers achievements and client success stories to inspire and motivate users.
 -   **Direct Communication (future)**: Built-in messaging system for trainers to communicate with their clients and community.
