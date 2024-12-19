@@ -47,6 +47,15 @@
    cd /client/trainwithme
 2. Install dependencies:
    npm install
+3. Server:
+   cd /rest-api
+   npm install
+
+## Run the Server
+
+1. Starting the server:
+   node .
+   npm run dev (to start it with nodemon).
 
 ## Run the App
 
