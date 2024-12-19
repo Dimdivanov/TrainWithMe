@@ -20,10 +20,10 @@ export class BlogItemComponent implements OnInit, OnDestroy {
   latestThemes: Theme[] = [];
   formatDate: string | null = null;
   blogCreator: string | null = null;
-  isUserLoggedIn: boolean = false; // To track login status
-  isUserOwner: boolean = false; //to track if the user is the owner of the blog
+  isUserLoggedIn: boolean = false; 
 
-  //for handling unsubbing
+  isUserOwner: boolean = false; 
+
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(

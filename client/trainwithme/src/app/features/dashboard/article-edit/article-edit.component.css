@@ -1,0 +1,93 @@
+/* Container */
+.article-section {
+  background-color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-article-container {
+  width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* Heading */
+.create-article-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: orangered;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ddd;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #151515;
+  color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: orangered;
+  background: #1c1c1c;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: orangered;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #ff4500;
+}
+
+.btn-secondary {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #444;
+}

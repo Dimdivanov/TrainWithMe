@@ -9,6 +9,7 @@ import { ErrorComponent } from './shared/error/error.component';
 import { ArticleCreateComponent } from './features/dashboard/article-create/article-create.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ArticleEditComponent } from './features/dashboard/article-edit/article-edit.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,8 +22,13 @@ export const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'edit-article/:articleId',
+    component: ArticleEditComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'create-articles', component: ArticleCreateComponent },
-  { path: 'edit-article', component: ArticleEditComponent },
+
   { path: 'about', component: AboutComponent },
   {
     path: 'trainer',
