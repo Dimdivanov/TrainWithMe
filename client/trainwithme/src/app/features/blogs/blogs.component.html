@@ -1,22 +1,32 @@
 <div class="blogs-page">
-  <!-- Loader while fetching blogs -->
   @if (isLoading) {
   <div class="loader-container">
     <app-loader></app-loader>
   </div>
   }
-
-  <!-- Blogs list -->
-  @if (!isLoading) {
-  <div class="blogs-list">
-    @for (blog of blogs; track $index) {
-    <div class="blog-card" [routerLink]="blog._id" appMousehover>
-      <h3 class="blog-title">{{ blog.themeName }}</h3>
-      <h3 class="blog-title">Subs: {{ blog.subscribers.length }}</h3>
-      <h3 class="blog-title">Comments: {{ blog.posts.length }}</h3>
-      <p class="blog-snippet">Click to read more...</p>
+  <div class="blog-container">
+    <!-- Title Section -->
+    <div class="blog-header">
+      <h1>FROM OUR BLOG</h1>
+      <p>List of all news and events that take place related to us</p>
     </div>
-    }
+
+    <!-- Articles Section -->
+    <div class="blog-content">
+      @if (!isLoading) { @for (blog of blogs; track $index) {
+      <div class="article" [routerLink]="blog._id" appMousehover>
+        <img [src]="blog.imageUrl" alt="Article 1" />
+        <div class="article-info">
+          <p class="category">{{ blog.themeName }}</p>
+          <p class="category">
+            Subscribers: {{ blog.subscribers.length || 0 }}
+          </p>
+          <p class="category">Comments: {{ blog.posts.length || 0 }}</p>
+          <h3>Many people sign up for affiliate programs</h3>
+          <p class="blog-snippet">Click to read more...</p>
+        </div>
+      </div>
+      } }
+    </div>
   </div>
-  }
 </div>

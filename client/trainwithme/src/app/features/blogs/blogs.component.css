@@ -1,14 +1,12 @@
-/* Main container for the blogs page */
 .blogs-page {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px 0;
+  margin: 0;
+  background-color: #151515;
+  color: #fff;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
-
 /* Loader styling */
 .loader-container {
   display: flex;
@@ -30,15 +28,13 @@
   width: 300px;
   padding: 20px;
   background: #ffffff;
-  border-radius: 15px;
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
-
 
 /* Blog title styling */
 .blog-title {
@@ -64,4 +60,70 @@
     width: 100%;
     max-width: 350px;
   }
+}
+
+/* the new blog styles */
+/* Blog Container */
+.blog-container {
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Header Section */
+.blog-header h1 {
+  font-size: 2.5em;
+  color: #fff;
+}
+
+.blog-header p {
+  font-size: 1.2em;
+  color: #ddd;
+  margin-top: 5px;
+}
+
+/* Articles Section */
+.blog-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.article {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.article:hover {
+  transform: translateY(-5px);
+}
+
+.article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.article-info {
+  padding: 15px;
+}
+
+.article-info .category {
+  font-size: 0.9em;
+  color: orangered;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.article-info h3 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #fff;
+  line-height: 1.4;
 }
