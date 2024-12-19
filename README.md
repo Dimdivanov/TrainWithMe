@@ -33,10 +33,8 @@
 
 ### Backend
 
--   **Authentication**: Secure user authentication using Firebase.
--   **Database**: Real-time and scalable data storage with Firebase Firestore.
--   **Cloud Functions**: Backend logic for advanced features and operations.
--   **Hosting**: Deployed and accessible via Firebase Hosting.
+-   **Authentication**: Secure user authentication using Softuni Server.
+-   **Database**: Real-time and scalable data storage with Softuni Server.
 
 ---
 
@@ -46,15 +44,14 @@
 
 1. Clone the repository:
    git clone https://github.com/dimdivanov/trainwithme.git
-   cd trainwithme
+   cd /client/trainwithme
 2. Install dependencies:
    npm install
-3. Configure Firebase:
-   Add your Firebase configuration to src/environments/environment.ts.
 
 ## Run the App
 
 1. Start the development server:
+   cd /src/app
    ng serve
 2. Open your browser at http://localhost:4200.
 

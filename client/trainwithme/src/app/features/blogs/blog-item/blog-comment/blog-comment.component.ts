@@ -40,8 +40,7 @@ export class BlogCommentComponent {
     const themeId = this.route.snapshot.params['themeId'];
 
     this.commentService.commentPost(themeId, text).subscribe({
-      next: (data) => {
-        console.log('Comment posted: ', data);
+      next: () => {
         this.commentForm.reset();
         this.commentAdded.emit();
       },
