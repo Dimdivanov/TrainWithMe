@@ -1,9 +1,9 @@
 /* Header section */
 header {
-  position: relative; /* Enable absolute positioning for child elements */
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space out logo and sign-up */
+  justify-content: space-between;
   height: 90px;
   background-color: #151515;
   padding: 10px 50px;
@@ -12,7 +12,7 @@ header {
 
 /* Logo container */
 .logo-container {
-  flex-shrink: 0; /* Prevent the logo from shrinking */
+  flex-shrink: 0;
 }
 
 .logo-container img {
@@ -22,8 +22,8 @@ header {
 /* Navigation menu - center it */
 .nav-items {
   position: absolute;
-  left: 50%; /* Start at the center */
-  transform: translateX(-50%); /* Offset to truly center */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
 }
@@ -37,9 +37,13 @@ header {
 .nav-sign-up {
   display: flex;
   justify-content: flex-end;
-  gap: 10px; /* Space between buttons */
+  gap: 10px;
 }
-
+.user-profile {
+  align-content: center;
+  font-size: 1.2em;
+  font-weight: 600;
+}
 /* Utility styles for navigation links */
 .nav-items a {
   color: #fff;
@@ -75,4 +79,42 @@ header {
 }
 
 /* Button styles in sign-up menu */
-/* to do */
+.nav-sign-up .btn {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  background-image: linear-gradient(to right, #e4381c, #e16521);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect */
+.nav-sign-up .btn:hover {
+  color: #fff;
+  background-image: linear-gradient(to right, #e16521, #e4381c);
+  border-color: #e4381c;
+}
+
+/* Specific Button Styling */
+.sign-btn {
+  background-color: transparent;
+}
+
+.register-btn {
+  background-color: transparent;
+}
+
+.logout-btn {
+  background-color: transparent;
+}

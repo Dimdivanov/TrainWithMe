@@ -9,5 +9,4 @@ import { RouterLink } from '@angular/router';
   styleUrl: './start-now.component.css'
 })
 export class StartNowComponent {
-
 }
