@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { UserServiceService } from '../../service/user-service.service';
-import { ToastrService } from 'ngx-toastr';
+import { GlobalToastrService } from '../../../../globaltoastr.service';
 
 @Component({
   selector: 'app-login',
@@ -25,14 +25,12 @@ export class LoginComponent {
   constructor(
     private userService: UserServiceService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: GlobalToastrService
   ) {}
 
   login() {
     if (this.loginForm.invalid) {
-      this.toastr.error('Please fill out all fields correctly.', 'Form Error', {
-        positionClass: 'toast-top-right',
-      });
+      this.toastr.showError('Please fill out all fields correctly.', 'Form Error');
       return;
     }
 
@@ -41,19 +39,11 @@ export class LoginComponent {
 
     this.userService.login(email, password).subscribe({
       next: () => {
-        this.toastr.success('Login successful!', 'Success', {
-          positionClass: 'toast-top-right',
-        });
+        this.toastr.showSuccess('Login successful!', 'Success');
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {
-        this.toastr.error(
-          error.message || 'Something went wrong',
-          'Login Failed',
-          {
-            positionClass: 'toast-top-right',
-          }
-        );
+        this.toastr.showError(error.message || 'Something went wrong', 'Login Failed');
       },
     });
   }
