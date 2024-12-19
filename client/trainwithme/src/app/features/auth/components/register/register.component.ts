@@ -9,7 +9,6 @@ import { RouterLink } from '@angular/router';
 import { passwordMatchValidator } from '../../util/password.validator';
 import { UserServiceService } from '../../service/user-service.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { GlobalToastrService } from '../../../../globaltoastr.service';
 
 @Component({
@@ -47,6 +46,10 @@ export class RegisterComponent {
   ) {}
 
   onRegisterSubmit() {
+    Object.values(this.registerForm.controls).forEach((control) => {
+      control.markAsTouched();
+    });
+
     if (this.registerForm.invalid) {
       this.toastr.showError(
         'Please fill out all fields correctly.',
