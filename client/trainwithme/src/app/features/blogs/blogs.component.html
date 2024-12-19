@@ -10,11 +10,10 @@
       <h1>FROM OUR BLOG</h1>
       <p>List of all news and events that take place related to us</p>
     </div>
-
     <!-- Articles Section -->
     <div class="blog-content">
       @if (!isLoading) { @for (blog of blogs; track $index) {
-      <div class="article" [routerLink]="blog._id" appMousehover>
+      <div class="article" [routerLink]="['/blogs', blog._id]" appMousehover>
         <img [src]="blog.imageUrl" alt="Article 1" />
         <div class="article-info">
           <p class="category">{{ blog.themeName }}</p>

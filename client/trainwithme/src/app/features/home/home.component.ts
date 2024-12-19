@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
-import { BlogPostsSectionComponent } from './blog-posts-section/blog-posts-section.component';
 import { WelcomeMsgComponent } from '../../shared/welcome-msg/welcome-msg.component';
 import { HomeSectionService } from './home-section.service';
 import { Theme } from '../../types/post';
 import { StartNowComponent } from '../../shared/start-now/start-now.component';
+import { BlogsComponent } from '../blogs/blogs.component';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +12,8 @@ import { StartNowComponent } from '../../shared/start-now/start-now.component';
   imports: [
     HeroSectionComponent,
     WelcomeMsgComponent,
-    BlogPostsSectionComponent,
     StartNowComponent,
+    BlogsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
