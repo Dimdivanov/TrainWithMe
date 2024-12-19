@@ -20,7 +20,6 @@ export const routes: Routes = [
         (c) => c.DashboardComponent
       ),
     canActivate: [AuthGuard],
-    data: { requiresAuth: true },
   },
   { path: 'create-articles', component: ArticleCreateComponent },
   { path: 'edit-article', component: ArticleEditComponent },
@@ -47,18 +46,8 @@ export const routes: Routes = [
     ],
   },
   { path: 'contact', component: ContactComponent },
-  {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [AuthGuard],
-    data: { requiresAuth: false },
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    canActivate: [AuthGuard],
-    data: { requiresAuth: false },
-  },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '404', component: ErrorComponent },
   { path: '**', redirectTo: '/404' },
 ];
