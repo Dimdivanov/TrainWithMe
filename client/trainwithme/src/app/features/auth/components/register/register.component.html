@@ -1,159 +1,169 @@
 <section class="sign-up-section">
   <div class="form-container">
-    <h2>Create Your Account</h2>
-    <form
-      [formGroup]="registerForm"
-      (ngSubmit)="onRegisterSubmit()"
-      class="sign-up-form"
-    >
-      <div class="form-field">
-        <div class="icon-wrapper">
-          <i class="fa fa-user"></i>
-        </div>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          autocomplete="username"
-          placeholder="Enter your username"
-          formControlName="username"
-        />
-        @if(registerForm.get('username')?.touched){
-        <div class="error-container">
-          @if(registerForm.get('username')?.errors?.['required']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Username is required!
+    <div class="left-side">
+      <h2>Create Your Account</h2>
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onRegisterSubmit()"
+        class="sign-up-form"
+      >
+        <div class="form-field">
+          <div class="field-header">
+            <div class="icon-wrapper">
+              <i class="fa fa-user"></i>
+            </div>
+            @if(registerForm.get('username')?.touched){
+            <div class="error-container">
+              @if(registerForm.get('username')?.errors?.['required']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Username is required!
+              </div>
+              } @if(registerForm.get('username')?.errors?.['minlength']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Minimum length is 6
+                characters!
+              </div>
+              }
+            </div>
+            }
           </div>
-          } @if(registerForm.get('username')?.errors?.['minlength']){
+          <input
+            type="text"
+            id="username"
+            name="username"
+            autocomplete="username"
+            placeholder="Enter your username"
+            formControlName="username"
+          />
+        </div>
+        <div class="form-field">
+          <div class="field-header">
+            <div class="icon-wrapper">
+              <i class="fa fa-envelope"></i>
+            </div>
+            @if(registerForm.get('email')?.touched){
+            <div class="error-container">
+              @if(registerForm.get('email')?.errors?.['required']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Email is required!
+              </div>
+              } @if(registerForm.get('email')?.errors?.['pattern']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Email not supported!
+              </div>
+              }
+            </div>
+            }
+          </div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+        </div>
+        <div class="form-field">
+          <div class="field-header">
+            <div class="icon-wrapper">
+              <i class="fa fa-lock"></i>
+            </div>
+            @if(registerForm.get('password')?.touched){
+            <div class="error-container">
+              @if(registerForm.get('password')?.errors?.['required']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Password is required!
+              </div>
+              } @if(registerForm.get('password')?.errors?.['minlength']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Minimum length is 6
+                characters!
+              </div>
+              }
+            </div>
+            }
+          </div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="password"
+            placeholder="Enter your password"
+            formControlName="password"
+          />
+        </div>
+        <div class="form-field">
+          <div class="field-header">
+            <div class="icon-wrapper">
+              <i class="fa fa-check-circle"></i>
+            </div>
+            @if(registerForm.get('rePassword')?.touched){
+            <div class="error-container">
+              @if(registerForm.get('rePassword')?.errors?.['required']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Confirm password is
+                required!
+              </div>
+              } @if(registerForm.errors?.['passwordsDoNotMatch']){
+              <div class="error-field">
+                <i class="fa fa-exclamation-circle"></i> Password Mismatch!
+              </div>
+              }
+            </div>
+            }
+          </div>
+          <input
+            type="password"
+            id="rePassword"
+            name="rePassword"
+            autocomplete="rePassword"
+            placeholder="Confirm your password"
+            formControlName="rePassword"
+          />
+        </div>
+        <div class="form-field account-type">
+          <p>Select Account Type:</p>
+          @if(registerForm.get('type')?.invalid &&
+          registerForm.get('type')?.touched){
           <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Minimum length is 6
-            characters!
+            <i class="fa fa-exclamation-circle"></i> Account Type is required!
           </div>
           }
-        </div>
-        }
-      </div>
-      <div class="form-field">
-        <div class="icon-wrapper">
-          <i class="fa fa-envelope"></i>
-        </div>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          autocomplete="email"
-          placeholder="Enter your email"
-          formControlName="email"
-        />
-        @if(registerForm.get('email')?.touched){
-        <div class="error-container">
-          @if(registerForm.get('email')?.errors?.['required']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Email is required!
+          <div class="account-options">
+            <label>
+              <input
+                type="radio"
+                name="type"
+                value="client"
+                formControlName="type"
+              />
+              <span class="custom-radio">Client</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="type"
+                value="trainer"
+                formControlName="type"
+              />
+              <span class="custom-radio">Trainer</span>
+            </label>
           </div>
-          } @if(registerForm.get('email')?.errors?.['pattern']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Email not supported!
-          </div>
-          }
         </div>
-        }
-      </div>
-      <div class="form-field">
-        <div class="icon-wrapper">
-          <i class="fa fa-lock"></i>
+        <div class="form-btns">
+          <button type="submit" class="sign-up-btn">Sign Up</button>
         </div>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          autocomplete="password"
-          placeholder="Enter your password"
-          formControlName="password"
-        />
-        @if(registerForm.get('password')?.touched){
-        <div class="error-container">
-          @if(registerForm.get('password')?.errors?.['required']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Password is required!
-          </div>
-          } @if(registerForm.get('password')?.errors?.['minlength']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Minimum length is 6
-            characters!
-          </div>
-          }
+        <div class="login-message">
+          Already registered? <a routerLink="/login" class="login-link">Log in</a>
         </div>
-        }
-      </div>
-      <div class="form-field">
-        <div class="icon-wrapper">
-          <i class="fa fa-check-circle"></i>
-        </div>
-        <input
-          type="password"
-          id="rePassword"
-          name="rePassword"
-          autocomplete="rePassword"
-          placeholder="Confirm your password"
-          formControlName="rePassword"
-        />
-        @if(registerForm.get('rePassword')?.touched){
-        <div class="error-container">
-          @if(registerForm.get('rePassword')?.errors?.['required']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Confirm password is
-            required!
-          </div>
-          } @if(registerForm.errors?.['passwordsDoNotMatch']){
-          <div class="error-field">
-            <i class="fa fa-exclamation-circle"></i> Password Mismatch!
-          </div>
-          }
-        </div>
-        }
-      </div>
-      <div class="form-field account-type">
-        <p>Select Account Type:</p>
-        @if(registerForm.get('type')?.invalid &&
-        registerForm.get('type')?.touched){
-        <div class="error-field">
-          <i class="fa fa-exclamation-circle"></i> Account Type is required!
-        </div>
-        }
-        <div class="account-options">
-          <label>
-            <input
-              type="radio"
-              name="type"
-              value="client"
-              formControlName="type"
-            />
-            <span class="custom-radio">Client</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="type"
-              value="trainer"
-              formControlName="type"
-            />
-            <span class="custom-radio">Trainer</span>
-          </label>
-        </div>
-      </div>
-      <div class="form-btns">
-        <button type="submit" class="sign-up-btn">Sign Up</button>
-      </div>
-      <div class="login-message">
-        Already registered? <a routerLink="/login" class="login-link">Log in</a>
-      </div>
-    </form>
-  </div>
-  <div class="image-container">
-    <img
-      src="https://img.freepik.com/premium-photo/fitness-trainer-demonstrating-new-exercise-client-gym_1314467-200090.jpg"
-      alt="default.png"
-    />
+      </form>
+    </div>
+    <div class="image-container">
+      <img
+        src="https://img.freepik.com/premium-photo/fitness-trainer-demonstrating-new-exercise-client-gym_1314467-200090.jpg"
+        alt="default.png"
+      />
+    </div>
   </div>
 </section>
