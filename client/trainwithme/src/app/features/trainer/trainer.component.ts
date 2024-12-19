@@ -34,8 +34,6 @@ export class TrainerComponent implements OnInit {
   fetchTrainers() {
     this.trainerService.getAllTrainers().subscribe({
       next: (data) => {
-        console.log(data);
-
         this.trainerUsers = data;
       },
     });
@@ -44,7 +42,6 @@ export class TrainerComponent implements OnInit {
     const searchValue = this.searchForm
       .get<string>('searchTerm')
       ?.value.toLowerCase();
-
     this.trainerService.searchTrainer(searchValue).subscribe({
       next: (data) => {
         this.trainerFound = data;

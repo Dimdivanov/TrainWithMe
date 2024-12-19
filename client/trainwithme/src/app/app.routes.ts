@@ -41,7 +41,6 @@ export const routes: Routes = [
           import('./features/blogs/blog-item/blog-item.component').then(
             (c) => c.BlogItemComponent
           ),
-        canActivate: [AuthGuard],
       },
     ],
   },

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from '../blogs.service';
 import { Theme } from '../../../types/post';
 import { CommonModule, DatePipe, TitleCasePipe } from '@angular/common';
 import { BlogCommentComponent } from './blog-comment/blog-comment.component';
 import { Subject, takeUntil } from 'rxjs';
+import { UserServiceService } from '../../auth/service/user-service.service';
 
 @Component({
   selector: 'app-blog-item',
@@ -14,23 +15,29 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './blog-item.component.html',
   styleUrl: './blog-item.component.css',
 })
-export class BlogItemComponent implements OnInit {
+export class BlogItemComponent implements OnInit, OnDestroy {
   theme: Theme | null = null;
   latestThemes: Theme[] = [];
-
   formatDate: string | null = null;
   blogCreator: string | null = null;
+  isUserLoggedIn: boolean = false; // To track login status
+  isUserOwner: boolean = false; //to track if the user is the owner of the blog
 
   //for handling unsubbing
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogsService
+    private blogService: BlogsService,
+    private userService: UserServiceService
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['themeId'];
+    // Check if the user is logged in
+    this.isUserLoggedIn = this.userService.isLogged;
+
+    // Check if the logged-in user is the owner of the theme
 
     this.blogService
       .getSingleBlog(id)
@@ -38,6 +45,9 @@ export class BlogItemComponent implements OnInit {
       .subscribe((theme) => {
         this.theme = theme;
         this.formatDate = theme.created_at;
+        if (this.theme?.userId) {
+          this.isUserOwner = this.userService.getUserId(theme.userId._id);
+        }
       });
 
     this.blogService
@@ -67,6 +77,7 @@ export class BlogItemComponent implements OnInit {
     });
   }
 
+  //not completed
   editComment(postId: string, currentText: string): void {
     const themeId = this.route.snapshot.params['themeId'];
     this.blogService.editComment(postId, currentText).subscribe(() => {

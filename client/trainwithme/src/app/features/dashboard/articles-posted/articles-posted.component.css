@@ -17,13 +17,17 @@
   gap: 20px;
   width: 60%;
 }
-
+.article h3 {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 800;
+}
 .article,
 .article .add-article {
   width: 250px;
   padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+  background-color: #2f2f2f;
+  box-shadow: rgba(247, 113, 36, 0.1) 0px 4px 10px;
   border-radius: 15px;
   text-align: center;
   transition: transform 0.2s;
@@ -35,8 +39,9 @@
 
 .add-new {
   align-items: center;
-  background-color: #e0ffe5;
-  border: 2px dashed #00cc66;
+  background-color: orangered;
+  border: 2px dashed #2f2f2f;
+  box-shadow: rgba(247, 113, 36, 0.1);
   cursor: pointer;
   display: flex; /* Center the text */
   height: 100%; /* Ensure height matches other articles */
@@ -44,10 +49,17 @@
 }
 
 /* Style for Edit and Delete buttons */
-.edit-btn, .delete-btn {
+.btns-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.edit-btn,
+.delete-btn {
   font-size: 12px;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: orangered;
   color: white;
   border: none;
   border-radius: 5px;
@@ -56,14 +68,16 @@
   transition: background-color 0.3s;
 }
 
-.edit-btn:hover, .delete-btn:hover {
-  background-color: #0056b3;
+.edit-btn:hover,
+.delete-btn:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  color: #fff; /* Ensure text remains white */
 }
 
 .delete-btn {
-  background-color: #dc3545;
+  background-color: #ff9800;
 }
 
 .delete-btn:hover {
-  background-color: #c82333;
+  background-color: #ff9800;
 }

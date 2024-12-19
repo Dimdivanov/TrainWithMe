@@ -16,6 +16,10 @@ export class UserServiceService {
     return !!this.user;
   }
 
+  getUserId(ownerId: string): boolean {
+    return this.user ? this.user.id === ownerId : false;
+  }
+
   constructor(private http: HttpClient) {
     this.user$.subscribe((user) => {
       this.user = user;

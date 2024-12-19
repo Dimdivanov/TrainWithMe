@@ -2,9 +2,12 @@
 .article-section {
   background-color: #333;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .create-article-container {
-  max-width: 700px;
+  width: 700px;
   margin: 50px auto;
   padding: 20px;
   background: #1c1c1c;
