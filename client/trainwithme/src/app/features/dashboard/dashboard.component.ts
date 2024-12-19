@@ -18,7 +18,6 @@ import { ArticlesPostedComponent } from './articles-posted/articles-posted.compo
 export class DashboardComponent implements OnInit, OnDestroy {
   isAuthenticating = true;
   themes: Theme[] = [];
-
   dashboardData: DashboardData | null = null;
   isEditMode: Boolean = false;
 
@@ -27,6 +26,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
+    this.fetchData(); 
+  }
+  
+  fetchData(){
     this.dashboardService.getUserProfile().subscribe({
       next: (data) => {
         this.dashboardData = data;
@@ -41,12 +44,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
+  handleEdit(){
+    this.fetchData();
+  }
+
   handleCancel() {
     this.isEditMode = false;
   }
   toggleEditMode() {
     this.isEditMode = !this.isEditMode;
-    //
   }
 
   ngOnDestroy(): void {

@@ -43,7 +43,7 @@
   </ng-container>
   } @else {
   <ng-container>
-    <app-edit-dashboard (cancel)="handleCancel()" />
+    <app-edit-dashboard (editDash)="handleEdit()" (cancel)="handleCancel()" />
   </ng-container>
   }
   <app-articles-posted />
