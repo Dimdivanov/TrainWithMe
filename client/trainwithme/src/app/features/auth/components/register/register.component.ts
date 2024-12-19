@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { passwordMatchValidator } from '../../util/password.validator';
 import { UserServiceService } from '../../service/user-service.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -40,23 +41,42 @@ export class RegisterComponent {
 
   constructor(
     private userService: UserServiceService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   onRegisterSubmit() {
     const { username, email, password, rePassword, type } =
       this.registerForm.value;
-    
-    if (this.registerForm.valid) {
-      this.userService
-        .register(username!, email!, password!, rePassword!, type!)
-        .subscribe(() => this.router.navigate(['/dashboard']));
-    } else {
-      //marking every button with touched if not trigger the error
+    if (this.registerForm.invalid) {
+      this.toastr.error('Please fill out all fields correctly.', 'Form Error', {
+        positionClass: 'toast-top-right',
+      });
       Object.keys(this.registerForm.controls).forEach((controlName) => {
         this.registerForm.get(controlName)?.markAsTouched();
       });
-      console.log('Register form is not Valid');
+      return;
     }
+
+    this.userService
+      .register(username!, email!, password!, rePassword!, type!)
+      .subscribe({
+        next: () => {
+          this.toastr.success('Register Successful!', 'Success', {
+            positionClass: 'toast-top-right',
+          });
+          this.router.navigate(['/dashboard']);
+        },
+        error: (error) => {
+          this.toastr.error(
+            error.message || 'Something went wrong',
+            'Register Failed',
+            {
+              positionClass: 'toast-top-right',
+            }
+          );
+        },
+      });
+    
   }
 }

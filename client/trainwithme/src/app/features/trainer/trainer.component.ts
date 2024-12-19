@@ -34,6 +34,8 @@ export class TrainerComponent implements OnInit {
   fetchTrainers() {
     this.trainerService.getAllTrainers().subscribe({
       next: (data) => {
+        console.log(data);
+
         this.trainerUsers = data;
       },
     });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserForAuth } from '../../../types/userAuth';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +23,18 @@ export class UserServiceService {
   }
 
   login(email: string, password: string) {
-    return this.http
-      .post<UserForAuth>('/api/login', { email, password })
-      .pipe(tap((user) => this.user$$.next(user)));
+    return this.http.post<UserForAuth>('/api/login', { email, password }).pipe(
+      tap((user) => this.user$$.next(user)),
+      catchError((error) => {
+        if (error.status === 401) {
+          return throwError(
+            () => new Error('Invalid credentials. Please try again.')
+          );
+        } else {
+          return throwError(() => new Error('An unexpected error occurred.'));
+        }
+      })
+    );
   }
 
   register(

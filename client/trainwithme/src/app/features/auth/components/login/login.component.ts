@@ -7,13 +7,12 @@ import {
 } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { UserServiceService } from '../../service/user-service.service';
-import { ToasterComponent } from '../../../../toaster/toaster.component';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, ToasterComponent],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -40,8 +39,22 @@ export class LoginComponent {
     const email = this.loginForm.get('email')?.value || '';
     const password = this.loginForm.get('password')?.value || '';
 
-    this.userService.login(email, password).subscribe(() => {
-      this.router.navigate(['/dashboard']);
+    this.userService.login(email, password).subscribe({
+      next: () => {
+        this.toastr.success('Login successful!', 'Success', {
+          positionClass: 'toast-top-right',
+        });
+        this.router.navigate(['/dashboard']);
+      },
+      error: (error) => {
+        this.toastr.error(
+          error.message || 'Something went wrong',
+          'Login Failed',
+          {
+            positionClass: 'toast-top-right',
+          }
+        );
+      },
     });
   }
 }
