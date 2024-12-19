@@ -14,9 +14,14 @@ export const AuthGuard: CanActivateFn = (
   const userService = inject(UserServiceService);
   const router = inject(Router);
 
-  if (userService.isLogged) {
+  const requiresAuth = route.data['requiresAuth'] as boolean;
+
+  if (requiresAuth && userService.isLogged) {
+    return true;
+  } else if (!requiresAuth && !userService.isLogged) {
     return true;
   }
-  router.navigate(['/home']);
+
+  router.navigate(requiresAuth ? ['/home'] : ['/dashboard']);
   return false;
 };
