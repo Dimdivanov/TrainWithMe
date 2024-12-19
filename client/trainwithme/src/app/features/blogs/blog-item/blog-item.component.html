@@ -38,14 +38,16 @@
           <div class="post-content">
             <p>{{ post.text }}</p>
           </div>
-          <div class="btn-container">
-            <button class="edit-btn" (click)="editComment(post._id, post.text)">
-              Edit
-            </button>
-            <button class="delete" (click)="deleteComment(post._id)">
-              Delete
-            </button>
-          </div>
+          @if(isUserLoggedIn){
+            <div class="btn-container">
+              <button class="edit-btn" (click)="editComment(post._id, post.text)">
+                Edit
+              </button>
+              <button class="delete" (click)="deleteComment(post._id)">
+                Delete
+              </button>
+            </div>
+          }
         </li>
         }
       </ul>

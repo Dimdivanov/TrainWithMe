@@ -15,4 +15,7 @@ export class ArticleServiceService {
     const payload = { themeName, postText, imageUrl, articleData };
     return this.http.post<Article>(`/api/themes`, payload);
   }
+  editArticle(themeId: string) {
+    return this.http.get<Article>(`/api/${themeId}`);
+  }
 }

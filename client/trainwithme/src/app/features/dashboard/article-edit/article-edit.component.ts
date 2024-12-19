@@ -17,7 +17,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './article-edit.component.css',
 })
 export class ArticleEditComponent implements OnInit {
-  articleId: string = '';
+  articleId: string | null = '';
 
   editArticleForm = new FormGroup({
     themeName: new FormControl('', [
@@ -35,8 +35,15 @@ export class ArticleEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.articleId = this.route.snapshot.params['id'];
-    console.log(this.articleId);
+    if (this.editArticleForm.invalid) {
+      return;
+    }
+    const themeId = this.route.snapshot.params['themeId'];
+    this.articleService.editArticle(themeId).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+    });
   }
 
   editArticle() {}
