@@ -55,7 +55,7 @@
 
 1. Starting the server:
    node .
-   npm run dev (to start it with nodemon).
+2. npm run dev (to start it with nodemon).
 
 ## Run the App
 
