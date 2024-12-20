@@ -17,7 +17,6 @@ import { Subscription } from 'rxjs';
 export class BlogsComponent implements OnInit, OnDestroy {
   blogs: Theme[] = [];
   private subscription: Subscription = new Subscription();
-  //testing loader
   isLoading = true;
 
   constructor(private blogsService: BlogsService) {}

@@ -34,10 +34,7 @@ export class BlogItemComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['themeId'];
-    // Check if the user is logged in
     this.isUserLoggedIn = this.userService.isLogged;
-
-    // Check if the logged-in user is the owner of the theme
 
     this.blogService
       .getSingleBlog(id)
@@ -58,7 +55,6 @@ export class BlogItemComponent implements OnInit, OnDestroy {
       });
   }
 
-  // Refresh blog data when a new comment is added or an existing one is deleted
   refreshBlogData(): void {
     const id = this.route.snapshot.params['themeId'];
     this.blogService
@@ -77,7 +73,6 @@ export class BlogItemComponent implements OnInit, OnDestroy {
     });
   }
 
-  //not completed
   editComment(postId: string, currentText: string): void {
     const themeId = this.route.snapshot.params['themeId'];
     this.blogService.editComment(postId, currentText).subscribe(() => {

@@ -5,12 +5,10 @@
   </div>
   }
   <div class="blog-container">
-    <!-- Title Section -->
     <div class="blog-header">
       <h1>FROM OUR BLOG</h1>
       <p>List of all news and events that take place related to us</p>
     </div>
-    <!-- Articles Section -->
     <div class="blog-content">
       @if (!isLoading) { @for (blog of blogs; track $index) {
       <div class="article" [routerLink]="['/blogs', blog._id]" appMousehover>

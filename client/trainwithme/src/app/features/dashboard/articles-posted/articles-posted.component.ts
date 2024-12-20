@@ -51,7 +51,6 @@ export class ArticlesPostedComponent implements OnInit, OnDestroy {
   onDelete(themeId: string): void {
     this.dashboardService.deleteUserArticle(themeId).subscribe({
       next: () => {
-        // Remove the article from the list without needing another API call
         this.userArticles = this.userArticles.filter(article => article._id !== themeId);
       },
       error: (err) => {

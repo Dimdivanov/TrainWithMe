@@ -30,7 +30,7 @@ export class TrainerComponent implements OnInit {
   ngOnInit(): void {
     this.fetchTrainers();
   }
-  //to do complete error too
+  
   fetchTrainers() {
     this.trainerService.getAllTrainers().subscribe({
       next: (data) => {

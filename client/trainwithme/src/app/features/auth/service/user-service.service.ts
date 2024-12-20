@@ -8,7 +8,7 @@ import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 })
 export class UserServiceService {
   private user$$ = new BehaviorSubject<UserForAuth | null>(null);
-  private user$ = this.user$$.asObservable();
+  user$ = this.user$$.asObservable();
 
   user: UserForAuth | null = null;
 
@@ -65,7 +65,6 @@ export class UserServiceService {
       .pipe(tap((user) => this.user$$.next(null)));
   }
 
-  //updating user profile
   updateProfile(
     username: string,
     email: string,
