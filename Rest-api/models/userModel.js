@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema(
                     return /[a-zA-Z0-9]+/g.test(v);
                 },
                 message: (props) =>
-                    `${props.value} must contains only latin letters and digits!`,
+                    `${props.value} must contains only latin letters and digits test!`,
             },
         },
         themes: [
